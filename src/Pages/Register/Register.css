@@ -1,0 +1,46 @@
+.stge__register {
+    display: flex;
+}
+
+.stge__register-container {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stge__register-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+    background-color: rgba(33, 37, 41, 0.03);
+
+    padding: 1rem 2rem;
+
+    box-shadow: 0.25rem 0.25rem 0 0.125rem rgba(197, 77, 25);
+}
+
+.stge__register-container form h1 {
+    color: rgb(197, 77, 25);
+}
+
+#google-register-button {
+    width: 100%;
+}
+
+#google-register-button button {
+    width: 100%;
+}
+
+.stge__register-container span {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.176);
+}

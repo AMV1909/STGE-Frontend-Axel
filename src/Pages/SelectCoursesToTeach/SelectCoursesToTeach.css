@@ -1,0 +1,67 @@
+.stge__selectCoursesToTeach {
+    display: flex;
+    overflow-x: hidden;
+}
+
+.stge__selectCoursesToTeach-listCourses {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+
+    margin: 1rem;
+    padding: 1rem;
+
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.stge__selectCoursesToTeach-listCourses p {
+    display: inline;
+}
+
+.stge__selectCoursesToTeach-listCourses_container {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.stge__selectCoursesToTeach-listCourses_container > p {
+    display: block;
+    text-align: center;
+}
+
+.stge__selectCoursesToTeach-listCourses_container-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+}
+
+.stge__selectCoursesToTeach-listCourses_container button {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: medium;
+
+    color: white;
+    background-color: #2a66e7;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stge__selectCoursesToTeach-listCourses_container button:hover {
+    background-color: #1c4cb4;
+}
+
+.stge__selectCoursesToTeach-listCourses_container button:disabled {
+    background-color: rgba(42, 102, 231, 0.5);
+    cursor: not-allowed;
+}

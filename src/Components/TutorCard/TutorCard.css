@@ -1,0 +1,73 @@
+.stge__tutorCard {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.stge__tutorCard:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.stge__tutorCard img {
+    width: 128px;
+    height: 128px;
+
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.stge__tutorCard-information {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.stge__tutorCard-information > div {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.stge__tutorCard-information_data {
+    display: flex;
+    flex-direction: column;
+}
+
+.stge__tutorCard-information_data p {
+    display: inline;
+    font-weight: bold;
+}
+
+.stge__tutorCard-information p p {
+    font-weight: normal;
+}
+
+.stge__tutorCard-information_score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.stge__tutorCard-information .rating-star {
+    padding: 0;
+}
+
+.stge__tutorCard-information .rating-star-icons-wrapper {
+    display: flex;
+    flex-direction: row;
+}

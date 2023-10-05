@@ -1,0 +1,49 @@
+.stge__selectableCourse {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    gap: 2rem;
+
+    padding: 0.5rem 1rem;
+}
+
+.stge__selectableCourse input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    cursor: pointer;
+}
+
+.stge__selectableCourse-card {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 2rem;
+
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+
+    width: 100%;
+}
+
+.stge__selectableCourse-card svg {
+    width: 5rem;
+    height: 5rem;
+
+    border: 1px solid black;
+
+    padding: 0.5rem;
+}
+
+.stge__selectableCourse-card div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 0.5rem;
+}
+
+.stge__selectableCourse-card p {
+    display: inline-block;
+}

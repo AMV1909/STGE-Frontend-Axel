@@ -1,0 +1,57 @@
+.stge__profile {
+    height: 85vh;
+    display: flex;
+}
+
+.stge__profile-information {
+    width: 30%;
+    height: 100%;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.176);
+}
+
+.stge__profile-information img {
+    width: 192px;
+    height: 192px;
+
+    border-radius: 0.5rem;
+    border: 2px solid black;
+}
+
+.stge__profile-information p {
+    display: inline;
+    font-weight: bold;
+}
+
+.stge__profile-information p p {
+    font-weight: normal;
+}
+
+.stge__profile-information_buttons {
+    margin-top: 2rem;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stge__profile-information button {
+    width: 100%;
+}
+
+.stge__profile-component {
+    width: 70%;
+    height: 100%;
+
+    border-left: 1px solid rgba(0, 0, 0, 0.176);
+}

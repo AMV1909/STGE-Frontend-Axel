@@ -1,0 +1,58 @@
+.stge__home {
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.stge__home-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    border-right: 2px solid #ccc;
+}
+
+.stge__home-loader div {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.stge__home-tutors {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+    padding: 2rem;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+.stge__home-functions {
+    border-left: 1px solid #ccc;
+}
+
+.stge__home-noInfo {
+    padding: 2rem;
+    text-align: center;
+    border-right: 2px solid #ccc;
+}

@@ -1,0 +1,11 @@
+.stge__profileTabs-modify {
+    height: 100%;
+    overflow-y: auto;
+
+    padding: 1rem;
+}
+
+.stge__profileTabs-modify h1 {
+    text-align: center;
+    padding: 1rem;
+}

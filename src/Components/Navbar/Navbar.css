@@ -1,0 +1,100 @@
+nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 1rem;
+    height: 15vh;
+    width: 100vw;
+
+    background-color: var(--orange-color);
+}
+
+.stge__navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.stge__navbar-links a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.stge__navbar-links a:hover:nth-child(2),
+.stge__navbar-links a:hover:nth-child(3) {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+.stge__navbar-functions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.stge__navbar-functions form {
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+}
+
+.stge__navbar-functions input,
+.stge__navbar-functions button {
+    padding: 0.5rem;
+}
+
+.stge__navbar-functions select {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.stge__navbar-functions input {
+    height: 37px;
+    border-radius: 0 !important;
+}
+
+.stge__navbar-functions input:focus {
+    outline: none;
+}
+
+.stge__navbar-functions form button {
+    height: 37px;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.stge__navbar-functions div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.stge__navbar-functions div button {
+    background-color: transparent;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.stge__navbar-functions div button:hover {
+    background-color: white;
+    color: black;
+}
+
+.stge__navbar-toggle {
+    position: absolute;
+    right: 0;
+    top: 6rem;
+
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    padding: 1rem;
+}

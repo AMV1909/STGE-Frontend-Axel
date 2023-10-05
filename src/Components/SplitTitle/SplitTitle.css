@@ -1,0 +1,21 @@
+.stge__split-title {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: var(--orange-color);
+}
+
+.stge__split-title h1 {
+    text-align: center;
+    font-size: 8rem;
+}
+
+.stge__split-title p {
+    font-weight: bold;
+}

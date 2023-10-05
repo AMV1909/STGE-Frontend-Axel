@@ -1,0 +1,23 @@
+.stge__toastRole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1rem;
+}
+
+.stge__toastRole p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.stge__toastRole form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+}

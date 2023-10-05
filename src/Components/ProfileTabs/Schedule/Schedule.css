@@ -1,0 +1,19 @@
+.stge__profileTabs-schedule {
+    height: 100%;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.stge__profileTabs-schedule > div {
+    width: 80%;
+    height: 80%;
+
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+}
