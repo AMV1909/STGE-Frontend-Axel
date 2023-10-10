@@ -1,6 +1,11 @@
-import { setUserInfo, logout } from "../Store/User/slice";
 import { useAppDispatch } from "./store";
-import { User } from "../Types/types";
+import { Course, User } from "../Types/types";
+import {
+    setUserInfo,
+    updateCoursesToTeach,
+    callPreviousCoursesToTeach,
+    logout,
+} from "../Store/User/slice";
 
 export const useUserActions = () => {
     const dispatch = useAppDispatch();
@@ -9,9 +14,17 @@ export const useUserActions = () => {
         dispatch(setUserInfo(user));
     };
 
+    const updateCourses = (courses: Course[]) => {
+        dispatch(updateCoursesToTeach(courses));
+    };
+
+    const callPreviousCourses = () => {
+        dispatch(callPreviousCoursesToTeach());
+    };
+
     const logoutUser = () => {
         dispatch(logout());
     };
 
-    return { setUser, logoutUser };
+    return { setUser, updateCourses, callPreviousCourses, logoutUser };
 };

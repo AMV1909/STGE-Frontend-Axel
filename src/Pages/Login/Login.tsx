@@ -41,6 +41,10 @@ export function Login() {
         }
 
         localStorage.setItem("google-token", response.access_token);
+        localStorage.setItem(
+            "google-token-expire",
+            response.expires_in.toString()
+        );
 
         toast.loading("Iniciando sesión...", { id: "loading", duration: 5000 });
 

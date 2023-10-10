@@ -64,4 +64,5 @@ export type ProfileTabs =
     | "schedule"
     | "scheduled"
     | "completed"
-    | "modify";
+    | "modify"
+    | "requested";

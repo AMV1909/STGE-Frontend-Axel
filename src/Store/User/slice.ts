@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../Types/types.d";
+import { Course, User } from "../../Types/types.d";
 
 const initialState: User = {
     _id: "",
@@ -23,10 +23,29 @@ export const userSlice = createSlice({
             return { ...action.payload };
         },
 
+        updateCoursesToTeach: (state, action: PayloadAction<Course[]>) => {
+            localStorage.setItem(
+                "previousCoursesToTeach",
+                JSON.stringify(state.coursesToTeach)
+            );
+
+            return { ...state, coursesToTeach: action.payload };
+        },
+
+        callPreviousCoursesToTeach: (state) => {
+            return {
+                ...state,
+                coursesToTeach: JSON.parse(
+                    localStorage.getItem("previousCoursesToTeach")!
+                ),
+            };
+        },
+
         logout: () => {
             localStorage.removeItem("google-token");
             localStorage.removeItem("token");
             localStorage.removeItem("tutors");
+            localStorage.removeItem("previousCoursesToTeach");
 
             return { ...initialState };
         },
@@ -35,4 +54,9 @@ export const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { setUserInfo, logout } = userSlice.actions;
+export const {
+    setUserInfo,
+    updateCoursesToTeach,
+    callPreviousCoursesToTeach,
+    logout,
+} = userSlice.actions;

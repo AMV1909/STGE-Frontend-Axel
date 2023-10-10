@@ -14,6 +14,7 @@ const initialState: Tutor[] = [
         pga: 0,
         countReviews: 0,
         meetingTime: 0,
+        tutorCalendarId: "",
     },
 ];
 

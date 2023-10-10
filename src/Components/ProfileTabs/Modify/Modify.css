@@ -9,3 +9,17 @@
     text-align: center;
     padding: 1rem;
 }
+
+.stge__profileTabs-modify_button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 1rem;
+}
+
+.stge__profileTabs-modify_button button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

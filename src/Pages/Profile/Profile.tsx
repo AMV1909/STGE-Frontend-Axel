@@ -44,6 +44,12 @@ export function Profile() {
                         </button>
                     )}
 
+                    {(user.role === "Student" || user.role === "Tutor") && (
+                        <button onClick={() => setTab("requested")}>
+                            Reuniones Solicitadas
+                        </button>
+                    )}
+
                     {(user.role === "Tutor" || user.role === "Student") && (
                         <button onClick={() => setTab("scheduled")}>
                             Reuniones Agendadas

@@ -63,7 +63,7 @@ export function ToastRole({ t }: { t: Toast }) {
                             );
                         }
 
-                        if (err.response?.status === 405) {
+                        if (err.response?.status === 409) {
                             return toast.error(
                                 "Ya existe una cuenta con este correo",
                                 {

@@ -1,15 +1,22 @@
+import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { BsArrowRight } from "react-icons/bs";
 
-import { useAppSelector } from "../../../Hooks/store";
 import { Course } from "../../../Types/types.d";
+import { useAppSelector } from "../../../Hooks/store";
+import { SelectableCourse } from "../..";
+import { useUserActions } from "../../../Hooks/useUserActions";
+import {
+    getCoursesToTeach,
+    updateCoursesToTeach,
+} from "../../../API/CoursesToTeach";
 
 import "./Modify.css";
-import { SelectableCourse } from "../..";
-import { getCoursesToTeach } from "../../../API/CoursesToTeach";
 
 export function Modify() {
     const user = useAppSelector((state) => state.user);
+    const { updateCourses, callPreviousCourses } = useUserActions();
     const [coursesToTeach, setCoursesToTeach] = useState<Course[]>([]);
     const [selectedCourses, setSelectedCourses] = useState<Course[]>(
         user.coursesToTeach || []
@@ -24,6 +31,11 @@ export function Modify() {
         getCoursesToTeach()
             .then((courses: Course[]) => {
                 toast.dismiss("loading");
+
+                courses.forEach((course) => {
+                    return (course.grade = Number(course.grade));
+                });
+
                 setCoursesToTeach(courses);
             })
             .catch((err) => {
@@ -48,6 +60,38 @@ export function Modify() {
         }
     };
 
+    const handleContinue = async () => {
+        updateCourses(selectedCourses);
+
+        toast.loading("Actualizando cursos...", {
+            id: "loading",
+            duration: 5000,
+        });
+
+        await updateCoursesToTeach(selectedCourses)
+            .then(() => {
+                toast.dismiss("loading");
+                toast.success("Cursos actualizados", { duration: 5000 });
+            })
+            .catch((err: AxiosError) => {
+                callPreviousCourses();
+
+                toast.dismiss("loading");
+                toast.error("Error al actualizar los cursos", {
+                    duration: 5000,
+                });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 409)
+                    toast.error(
+                        "Algunos de los cursos que intenta registrar no cumplen con los requisitos",
+                        { duration: 5000 }
+                    );
+            });
+    };
+
     return (
         <div className="stge__profileTabs-modify">
             <h1>Modificar Asignaturas A Enseñar</h1>
@@ -69,6 +113,29 @@ export function Modify() {
                             }
                         />
                     ))}
+            </div>
+
+            <div className="stge__profileTabs-modify_button">
+                <button
+                    onClick={handleContinue}
+                    disabled={
+                        selectedCourses.length === 0 ||
+                        (selectedCourses.every((course) =>
+                            user.coursesToTeach?.find(
+                                (courseToTeach) =>
+                                    courseToTeach.nrc === course.nrc
+                            )
+                        ) &&
+                            user.coursesToTeach?.every((course) =>
+                                selectedCourses.find(
+                                    (courseToTeach) =>
+                                        courseToTeach.nrc === course.nrc
+                                )
+                            ))
+                    }
+                >
+                    Continuar <BsArrowRight size={24} />
+                </button>
             </div>
         </div>
     );

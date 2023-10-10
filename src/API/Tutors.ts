@@ -30,5 +30,5 @@ export const searchTutors = async ({
                 search,
             },
         })
-        .then((res) => res.data);
+        .then((res) => res);
 };

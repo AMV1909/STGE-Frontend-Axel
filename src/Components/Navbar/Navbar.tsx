@@ -1,3 +1,4 @@
+import { AxiosError, AxiosResponse } from "axios";
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
@@ -8,7 +9,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import { searchTutors } from "../../API/Tutors";
-import { PathRoutes } from "../../Types/types.d";
+import { PathRoutes, Tutor } from "../../Types/types.d";
 import { useAppSelector } from "../../Hooks/store";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
@@ -48,10 +49,25 @@ export function Navbar() {
         navigate(PathRoutes.Home);
 
         await searchTutors(data)
-            .then((tutors) => setSearchingTutors(tutors))
-            .catch((err) => {
+            .then((res: AxiosResponse) => {
+                if (res.status === 229) {
+                    localStorage.setItem("token", res.data.token);
+                    return handleSubmit(e);
+                }
+
+                setSearchingTutors(res.data as Tutor[]);
+            })
+            .catch((err: AxiosError) => {
                 toast.error("Error al buscar tutores", { duration: 5000 });
-                toast.error(err.message, { duration: 5000 });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate(PathRoutes.Login);
+                    return toast.error("La sesión ha expirado");
+                }
             });
     };
 
