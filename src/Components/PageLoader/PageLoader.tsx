@@ -1,8 +1,10 @@
+import { AxiosError } from "axios";
 import { Dispatch, SetStateAction, useEffect } from "react";
+import toast from "react-hot-toast";
 
 import { useUserActions } from "../../Hooks/useUserActions";
+import { restoreSession } from "../../API/RestoreSession";
 import { User } from "../../Types/types.d";
-import { restoreSession } from "../../API/User";
 
 import "./PageLoader.css";
 
@@ -11,7 +13,7 @@ export function PageLoader({
 }: {
     setLoading: Dispatch<SetStateAction<boolean>>;
 }) {
-    const { setUser } = useUserActions();
+    const { setUser, logoutUser } = useUserActions();
 
     useEffect(() => {
         if (!localStorage.getItem("token")) return setLoading(false);
@@ -21,9 +23,13 @@ export function PageLoader({
                 setUser(user);
                 setLoading(false);
             })
-            .catch(() => {
-                localStorage.removeItem("token");
+            .catch((err: AxiosError) => {
                 setLoading(false);
+
+                if (err.response && err.response.status === 500) {
+                    logoutUser();
+                    return toast.error("La sesión ha expirado");
+                }
             });
     }, [setLoading, setUser]);
 

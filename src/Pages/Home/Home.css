@@ -11,7 +11,7 @@
     align-items: center;
     gap: 2rem;
 
-    border-right: 2px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .stge__home-loader div {
@@ -54,5 +54,5 @@
 .stge__home-noInfo {
     padding: 2rem;
     text-align: center;
-    border-right: 2px solid #ccc;
+    border-right: 1px solid #ccc;
 }

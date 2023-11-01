@@ -11,7 +11,13 @@ export const getCoursesToTeach = async () => {
                 "x-access-token": localStorage.getItem("token"),
             },
         })
-        .then((res) => res.data);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.coursesToTeach;
+        });
 };
 
 export const updateCoursesToTeach = async (coursesToTeach: Course[]) => {
@@ -25,5 +31,11 @@ export const updateCoursesToTeach = async (coursesToTeach: Course[]) => {
                 },
             }
         )
-        .then((res) => res.data);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.coursesToTeach;
+        });
 };

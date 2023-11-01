@@ -1,4 +1,4 @@
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
@@ -49,13 +49,8 @@ export function Navbar() {
         navigate(PathRoutes.Home);
 
         await searchTutors(data)
-            .then((res: AxiosResponse) => {
-                if (res.status === 229) {
-                    localStorage.setItem("token", res.data.token);
-                    return handleSubmit(e);
-                }
-
-                setSearchingTutors(res.data as Tutor[]);
+            .then((tutors: Tutor[]) => {
+                setSearchingTutors(tutors);
             })
             .catch((err: AxiosError) => {
                 toast.error("Error al buscar tutores", { duration: 5000 });

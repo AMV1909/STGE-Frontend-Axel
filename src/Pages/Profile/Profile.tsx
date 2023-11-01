@@ -31,9 +31,15 @@ export function Profile() {
                     PGA: <p>{user.pga}</p>
                 </p>
 
-                {user.role === "Tutor" && (
+                {user.role === "Tutor" && user.meetingTime && (
                     <p>
-                        Tiempo en reunión: <p>{user.meetingTime}</p>
+                        {/* Mostrar el tiempo en horas, minutos y segundos, por defecto está en minutos*/}
+                        Tiempo en reunión:{" "}
+                        <p>
+                            {new Date(user.meetingTime * 60000)
+                                .toISOString()
+                                .substr(11, 8)}
+                        </p>
                     </p>
                 )}
 
@@ -58,7 +64,7 @@ export function Profile() {
 
                     {(user.role === "Tutor" || user.role === "Student") && (
                         <button onClick={() => setTab("completed")}>
-                            Reuniones Realizadas
+                            Reuniones Completadas
                         </button>
                     )}
 

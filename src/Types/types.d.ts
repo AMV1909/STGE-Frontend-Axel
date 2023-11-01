@@ -66,3 +66,39 @@ export type ProfileTabs =
     | "completed"
     | "modify"
     | "requested";
+
+export type DateRange = {
+    start: Date;
+    end: Date;
+};
+
+export type SelectedDates = {
+    title: string;
+    description: string;
+    attendees: [] | { email: string }[];
+    course?: string;
+} & DateRange;
+
+export type Event = {
+    _id: string;
+    type: "Requested" | "Scheduled" | "Rejected" | "Completed";
+    summary: string;
+    description: string;
+    course: string;
+    student: {
+        id: string;
+        name: string;
+        email: string;
+        picture: string;
+    };
+    tutor: {
+        id: string;
+        name: string;
+        email: string;
+        picture: string;
+    };
+    start: string;
+    end: string;
+    link?: string;
+    confirmedCompleted?: number;
+};

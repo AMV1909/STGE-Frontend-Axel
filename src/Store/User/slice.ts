@@ -46,6 +46,7 @@ export const userSlice = createSlice({
             localStorage.removeItem("token");
             localStorage.removeItem("tutors");
             localStorage.removeItem("previousCoursesToTeach");
+            localStorage.removeItem("google-token-expire");
 
             return { ...initialState };
         },

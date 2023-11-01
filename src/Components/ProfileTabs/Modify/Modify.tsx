@@ -1,9 +1,10 @@
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { BsArrowRight } from "react-icons/bs";
 
-import { Course } from "../../../Types/types.d";
+import { Course, PathRoutes } from "../../../Types/types.d";
 import { useAppSelector } from "../../../Hooks/store";
 import { SelectableCourse } from "../..";
 import { useUserActions } from "../../../Hooks/useUserActions";
@@ -16,7 +17,8 @@ import "./Modify.css";
 
 export function Modify() {
     const user = useAppSelector((state) => state.user);
-    const { updateCourses, callPreviousCourses } = useUserActions();
+    const navigate = useNavigate();
+    const { updateCourses, callPreviousCourses, logoutUser } = useUserActions();
     const [coursesToTeach, setCoursesToTeach] = useState<Course[]>([]);
     const [selectedCourses, setSelectedCourses] = useState<Course[]>(
         user.coursesToTeach || []
@@ -40,7 +42,15 @@ export function Modify() {
             })
             .catch((err) => {
                 toast.error("Error al obtener los cursos", { duration: 5000 });
-                toast.error(err.message, { duration: 5000 });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate(PathRoutes.Login);
+                    return toast.error("La sesión ha expirado");
+                }
             });
     }, []);
 
@@ -89,6 +99,12 @@ export function Modify() {
                         "Algunos de los cursos que intenta registrar no cumplen con los requisitos",
                         { duration: 5000 }
                     );
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate(PathRoutes.Login);
+                    return toast.error("La sesión ha expirado");
+                }
             });
     };
 

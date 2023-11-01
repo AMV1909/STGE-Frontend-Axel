@@ -1,9 +1,7 @@
-import { Completed } from "./Completed/Completed";
 import { Modify } from "./Modify/Modify";
 import { Nothing } from "./Nothing/Nothing";
 import { Schedule } from "./Schedule/Schedule";
-import { Scheduled } from "./Scheduled/Scheduled";
-import { Requested } from "./Requested/Requested";
+import { EventsList } from "./EventsList/EventsList";
 
 import { ProfileTabs } from "../../Types/types";
 
@@ -14,11 +12,11 @@ export function ProfileTabsComponent({ tab }: { tab: ProfileTabs }) {
         case "schedule":
             return <Schedule />;
         case "scheduled":
-            return <Scheduled />;
+            return <EventsList type="Scheduled" />;
         case "completed":
-            return <Completed />;
+            return <EventsList type="Completed" />;
         case "requested":
-            return <Requested />;
+            return <EventsList type="Requested" />;
         default:
             return <Nothing />;
     }

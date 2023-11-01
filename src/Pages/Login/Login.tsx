@@ -40,10 +40,13 @@ export function Login() {
             return toast.error("Error al iniciar sesión", { duration: 5000 });
         }
 
+        const now = new Date();
+        now.setSeconds(now.getSeconds() + response.expires_in);
+
         localStorage.setItem("google-token", response.access_token);
         localStorage.setItem(
             "google-token-expire",
-            response.expires_in.toString()
+            now.toLocaleString("es-CO")
         );
 
         toast.loading("Iniciando sesión...", { id: "loading", duration: 5000 });
@@ -105,6 +108,7 @@ export function Login() {
                         placeholder="Correo"
                         onChange={onChange}
                         required
+                        disabled
                     />
 
                     <input
@@ -113,9 +117,10 @@ export function Login() {
                         placeholder="Contraseña"
                         onChange={onChange}
                         required
+                        disabled
                     />
 
-                    <button>Iniciar Sesión</button>
+                    <button disabled>Iniciar Sesión</button>
 
                     <Link to={PathRoutes.Register}>Registrarse</Link>
                 </form>

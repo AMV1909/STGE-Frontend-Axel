@@ -10,7 +10,13 @@ export const getTutors = async () => {
                 "x-access-token": localStorage.getItem("token"),
             },
         })
-        .then((res) => res.data);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.tutors;
+        });
 };
 
 export const searchTutors = async ({
@@ -30,5 +36,11 @@ export const searchTutors = async ({
                 search,
             },
         })
-        .then((res) => res);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.tutors;
+        });
 };

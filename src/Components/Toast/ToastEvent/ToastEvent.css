@@ -1,0 +1,29 @@
+.stge__toastEvent > p {
+    text-align: center;
+}
+
+.stge__toastEvent-info {
+    margin: 1rem 0;
+}
+
+.stge__toastEvent-score {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.stge__toastEvent-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-bottom: 1rem;
+}
+
+.stge__toastEvent-buttons .red-button {
+    background-color: #ff1a1a;
+}
+
+.stge__toastEvent-buttons .red-button:hover {
+    background-color: #b51a00;
+}

@@ -1,0 +1,40 @@
+.fc {
+    width: 90%;
+    height: 90%;
+
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+}
+
+.stge__calendar-selectedDates {
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.stge__calendar-selectedDates div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.stge__calendar-selectedDates button {
+    border-radius: 100%;
+
+    background-color: transparent;
+    color: black;
+}
+
+.stge__calendar-selectedDates button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.stge__calendar-selectedDates button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}

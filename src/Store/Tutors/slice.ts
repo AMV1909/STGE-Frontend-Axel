@@ -33,7 +33,11 @@ export const tutorsSlice = createSlice({
         },
 
         resetTutorsInfo: () => {
-            return JSON.parse(localStorage.getItem("tutors")!) as Tutor[];
+            if (localStorage.getItem("tutors")) {
+                return JSON.parse(localStorage.getItem("tutors")!) as Tutor[];
+            }
+
+            return [...initialState];
         },
     },
 });

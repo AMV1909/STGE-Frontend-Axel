@@ -3,14 +3,16 @@ import { Toast, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 
-import { googleRegisterStudent, getTempUserData } from "../../API/Session";
-import { useTempUserActions } from "../../Hooks/useTempUserActions";
-import { PathRoutes, TempUser } from "../../Types/types.d";
+import { googleRegisterStudent, getTempUserData } from "../../../API/Session";
+import { useUserActions } from "../../../Hooks/useUserActions";
+import { useTempUserActions } from "../../../Hooks/useTempUserActions";
+import { PathRoutes, TempUser } from "../../../Types/types.d";
 
 import "./ToastRole.css";
 
 export function ToastRole({ t }: { t: Toast }) {
     const navigate = useNavigate();
+    const { logoutUser } = useUserActions();
     const { setTempUser } = useTempUserActions();
     const [role, setRole] = useState<"" | "Student" | "Tutor">("");
 
@@ -54,6 +56,8 @@ export function ToastRole({ t }: { t: Toast }) {
                         toast.dismiss("loading");
                         toast.error("Error al registrarse", { duration: 5000 });
 
+                        if (!err.response) return toast.error(err.message);
+
                         if (err.response?.status === 400) {
                             return toast.error(
                                 "El correo seleccionado no es válido",
@@ -70,6 +74,12 @@ export function ToastRole({ t }: { t: Toast }) {
                                     duration: 5000,
                                 }
                             );
+                        }
+
+                        if (err.response?.status === 500) {
+                            logoutUser();
+                            navigate(PathRoutes.Login);
+                            return toast.error("La sesión ha expirado");
                         }
 
                         toast.error(err.message, { duration: 5000 });
@@ -107,6 +117,8 @@ export function ToastRole({ t }: { t: Toast }) {
                         toast.dismiss("loading");
                         toast.error("Error al registrarse", { duration: 5000 });
 
+                        if (!err.response) return toast.error(err.message);
+
                         if (err.response?.status === 400) {
                             return toast.error(
                                 "El correo seleccionado no es válido",
@@ -123,6 +135,12 @@ export function ToastRole({ t }: { t: Toast }) {
                                     duration: 5000,
                                 }
                             );
+                        }
+
+                        if (err.response?.status === 500) {
+                            logoutUser();
+                            navigate(PathRoutes.Login);
+                            return toast.error("La sesión ha expirado");
                         }
 
                         toast.error(err.message, { duration: 5000 });
