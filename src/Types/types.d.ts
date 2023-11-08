@@ -12,6 +12,7 @@ export type User = {
     countReviews?: number;
     meetingTime?: number;
     tutorCalendarId?: string;
+    active_disciplinary_processes?: boolean;
 };
 
 export type Tutor = {

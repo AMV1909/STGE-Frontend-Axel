@@ -100,6 +100,13 @@ export function SelectCoursesToTeach() {
                         </p>
                     )}
 
+                    {tempUser && tempUser.active_disciplinary_processes && (
+                        <p>
+                            Tiene procesos disciplinarios activos, por lo que no
+                            puede registrarse como tutor{" "}
+                        </p>
+                    )}
+
                     <div className="stge__selectCoursesToTeach-listCourses_container-button">
                         <button onClick={() => navigate(PathRoutes.Register)}>
                             <BsArrowLeft size={24} />

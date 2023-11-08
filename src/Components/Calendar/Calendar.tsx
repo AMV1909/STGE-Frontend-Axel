@@ -70,7 +70,7 @@ export function Calendar({
     useEffect(() => {
         if (isSelecting || !googleCalendarId) return;
 
-        getAvailableSchedule(googleCalendarId)
+        getAvailableSchedule(googleCalendarId, tutor?._id)
             .then((events: Event[]) => {
                 setEvents(
                     events.map((event) => {

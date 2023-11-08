@@ -8,11 +8,13 @@ const initialState: User = {
     email: "",
     picture: "",
     career: "",
+    pga: 0,
     coursesToTeach: [],
     score: 0,
-    pga: 0,
     countReviews: 0,
     meetingTime: 0,
+    tutorCalendarId: "",
+    active_disciplinary_processes: false,
 };
 
 export const userSlice = createSlice({
