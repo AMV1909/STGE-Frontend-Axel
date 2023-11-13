@@ -1,0 +1,42 @@
+.stge__workerCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.stge__workerCard img {
+    width: 192px;
+    height: 192px;
+
+    border-radius: 1rem;
+    border: 1px solid black;
+    object-fit: cover;
+}
+
+.stge__workerCard h3 {
+    max-width: 192px;
+    text-align: center;
+    text-wrap: wrap;
+}
+
+.stge__workerCard-buttons {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stge__workerCard-buttons button:nth-child(2) {
+    background-color: #ff1a1a;
+}
+
+.stge__workerCard-buttons button:nth-child(2):hover {
+    background-color: #b51a00;
+}

@@ -24,12 +24,16 @@ export function Profile() {
                 <p>
                     ID: <p>{user._id}</p>
                 </p>
-                <p>
-                    Carrera: <p>{user.career}</p>
-                </p>
-                <p>
-                    PGA: <p>{user.pga}</p>
-                </p>
+                {(user.role === "Tutor" || user.role === "Student") && (
+                    <>
+                        <p>
+                            Carrera: <p>{user.career}</p>
+                        </p>
+                        <p>
+                            PGA: <p>{user.pga}</p>
+                        </p>
+                    </>
+                )}
 
                 {user.role === "Tutor" && user.meetingTime && (
                     <p>

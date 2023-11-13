@@ -17,10 +17,11 @@ import unab_logo from "../../Assets/unab_logo.svg";
 
 import "./Navbar.css";
 
-const notLoggedRoutes = [
-    PathRoutes.Login,
-    PathRoutes.Register,
-    PathRoutes.SelectCoursesToTeach,
+const loggedRoutes = [
+    PathRoutes.Admin,
+    PathRoutes.Home,
+    PathRoutes.Profile,
+    PathRoutes.TutorsList,
 ];
 
 export function Navbar() {
@@ -66,7 +67,7 @@ export function Navbar() {
             });
     };
 
-    if (notLoggedRoutes.includes(window.location.pathname as PathRoutes))
+    if (!loggedRoutes.includes(window.location.pathname as PathRoutes))
         return null;
 
     return (
@@ -76,12 +77,9 @@ export function Navbar() {
                     <img src={unab_logo} alt="Logo UNAB" />
                 </Link>
 
-                {user.role === "Worker" ||
-                    (user.role === "Admin" && (
-                        <Link to={PathRoutes.TutorsList}>
-                            Listado de Tutores
-                        </Link>
-                    ))}
+                {(user.role === "Worker" || user.role === "Admin") && (
+                    <Link to={PathRoutes.TutorsList}>Listado de Tutores</Link>
+                )}
 
                 {user.role === "Admin" && (
                     <Link to={PathRoutes.Admin}>Administración</Link>
@@ -96,7 +94,7 @@ export function Navbar() {
                     </select>
 
                     <input
-                        type="text"
+                        type="search"
                         name="search"
                         placeholder={`Buscar por ${
                             data.type_search === "name" ? "nombre" : "curso"

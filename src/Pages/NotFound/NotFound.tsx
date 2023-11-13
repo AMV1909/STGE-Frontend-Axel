@@ -6,5 +6,5 @@ export function NotFound() {
         document.title = "Página no encontrada - STGE";
     }, []);
 
-    return <div></div>;
+    return <div>Hola</div>;
 }

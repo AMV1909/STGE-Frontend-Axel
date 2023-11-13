@@ -1,0 +1,81 @@
+.stge__workerModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.stge__workerModal-content {
+    width: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.stge__workerModal-content header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 2rem;
+
+    background-color: var(--orange-color);
+    border-radius: 1rem 1rem 0 0;
+    color: white;
+}
+
+.stge__workerModal-content header button {
+    padding: 0;
+
+    background-color: transparent;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.stge__workerModal-content header button:hover {
+    background-color: white;
+    color: black;
+}
+
+.stge__workerModal-content header svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.stge__workerModal-content form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+    padding: 2rem;
+}
+
+.stge__workerModal-content form img {
+    width: 128px;
+    height: 128px;
+
+    border: 2px solid black;
+    border-radius: 1rem;
+    object-fit: cover;
+}

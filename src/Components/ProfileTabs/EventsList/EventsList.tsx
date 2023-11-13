@@ -232,7 +232,9 @@ export function EventsList({
                                                     event.end &&
                                                 "Reunión en curso"}
 
-                                            {user.role === "Student" &&
+                                            {event.end >
+                                                new Date().toISOString() &&
+                                                user.role === "Student" &&
                                                 !event.confirmedCompleted &&
                                                 "Esperando a que el tutor marque la reunión como completada"}
 

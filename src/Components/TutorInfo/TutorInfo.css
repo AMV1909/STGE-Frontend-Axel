@@ -1,0 +1,13 @@
+.stge__home-filters {
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.stge__home-tutors {
+    height: auto !important;
+    border: none !important;
+}
+
+.stge__home-functions_tutor table {
+    width: 90%;
+}

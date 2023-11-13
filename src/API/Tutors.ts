@@ -44,3 +44,19 @@ export const searchTutors = async ({
             return res.data.tutors;
         });
 };
+
+export const getTutorsWithEvents = async () => {
+    return await axios
+        .get(`${API_URL}/tutors/worker`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        })
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.tutors;
+        });
+};

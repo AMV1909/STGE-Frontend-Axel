@@ -1,0 +1,19 @@
+.stge__toastDeleteWorker p {
+    text-align: center;
+}
+
+.stge__toastDeleteWorker-buttons {
+    margin-top: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.stge__toastDeleteWorker-buttons button:nth-child(1) {
+    background-color: #ff1a1a;
+}
+
+.stge__toastDeleteWorker-buttons button:nth-child(1):hover {
+    background-color: #b51a00;
+}

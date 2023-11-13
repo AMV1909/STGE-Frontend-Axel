@@ -32,9 +32,16 @@ export function ProtectedRoute({ children }: { children: JSX.Element }) {
             break;
         }
 
-        // case PathRoutes.TutorsList:
+        case PathRoutes.TutorsList: {
+            if (user.role !== "Worker" && user.role !== "Admin")
+                return <Navigate to={PathRoutes.Home} />;
+            break;
+        }
 
-        // case PathRoutes.Admin:
+        case PathRoutes.Admin: {
+            if (user.role !== "Admin") return <Navigate to={PathRoutes.Home} />;
+            break;
+        }
 
         case PathRoutes.Profile: {
             if (user._id === "" || user._id === undefined)

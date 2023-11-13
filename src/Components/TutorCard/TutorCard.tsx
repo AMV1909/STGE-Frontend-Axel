@@ -1,15 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch } from "react";
 import { RatingStar } from "rating-star";
 import { toast } from "react-hot-toast";
 
 import { useAppSelector } from "../../Hooks/store";
-import { Tutor } from "../../Types/types.d";
+import { PathRoutes, Tutor } from "../../Types/types.d";
 
 import "./TutorCard.css";
 
 interface Props {
     tutor: Tutor;
-    setSelectedTutor: Dispatch<SetStateAction<Tutor | null>>;
+    setSelectedTutor: Dispatch<any>
 }
 
 export function TutorCard({ tutor, setSelectedTutor }: Props) {
@@ -17,18 +17,15 @@ export function TutorCard({ tutor, setSelectedTutor }: Props) {
 
     const onClick = () => {
         if (user.role !== "Student") {
-            enum RoleString {
-                "Student" = "estudiante",
-                "Tutor" = "tutor",
-                "Admin" = "administrador",
-                "Worker" = "trabajador",
-            }
-
-            return toast.error(
-                `Los ${
-                    RoleString[user.role]
-                }es no pueden seleccionar tutores para tutorías`
-            );
+            if (
+                window.location.pathname === PathRoutes.TutorsList &&
+                user.role !== "Worker" &&
+                user.role !== "Admin"
+            )
+                return toast.error(
+                    "Solo los estudiantes pueden seleccionar tutores para agendar tutorías",
+                    { duration: 5000 }
+                );
         }
 
         setSelectedTutor(tutor);

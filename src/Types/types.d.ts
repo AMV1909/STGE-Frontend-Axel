@@ -31,6 +31,10 @@ export type Tutor = {
     tutorCalendarId: string;
 };
 
+export type TutorWithEvents = Tutor & {
+    events: Event[];
+};
+
 export type Course = {
     nrc: string;
     name: string;
@@ -102,4 +106,12 @@ export type Event = {
     end: string;
     link?: string;
     confirmedCompleted?: number;
+};
+
+export type Worker = {
+    _id: string;
+    role: "Worker";
+    name: string;
+    email: string;
+    picture: string;
 };

@@ -1,0 +1,31 @@
+.stge__home-tutors_filters {
+    width: 100%;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+}
+
+.stge__home-tutors_filters,
+.stge__home-loader {
+    padding: 2rem 2rem 0;
+}
+
+.stge__home-tutors_filters input {
+    width: 50% !important;
+}
+
+.stge__home-tutors_filters .off {
+    background-color: white;
+    border: 1px solid #1c4cb4;
+    color: #1c4cb4;
+}
+
+.stge__home-tutors_filters .off:hover {
+    background-color: #1c4cb4;
+    color: white;
+}
+
+.stge__home-tutors_filters button {
+    border: 1px solid #1c4cb4;
+}

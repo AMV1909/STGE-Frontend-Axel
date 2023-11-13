@@ -52,6 +52,10 @@
     font-weight: bold;
 }
 
+.stge__tutorCard-information > p {
+    text-align: end;
+}
+
 .stge__tutorCard-information p p {
     font-weight: normal;
 }

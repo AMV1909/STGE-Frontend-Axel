@@ -13,6 +13,8 @@ import {
     Register,
     SelectCoursesToTeach,
     Profile,
+    ListTutors,
+    Admin,
 } from "./Pages";
 
 import "./App.css";
@@ -70,6 +72,24 @@ export function App() {
                             element={
                                 <ProtectedRoute>
                                     <Profile />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path={PathRoutes.TutorsList}
+                            element={
+                                <ProtectedRoute>
+                                    <ListTutors />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path={PathRoutes.Admin}
+                            element={
+                                <ProtectedRoute>
+                                    <Admin />
                                 </ProtectedRoute>
                             }
                         />
