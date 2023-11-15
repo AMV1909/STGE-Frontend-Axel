@@ -232,7 +232,7 @@ export function EventsList({
                                                     event.end &&
                                                 "Reunión en curso"}
 
-                                            {event.end >
+                                            {event.end <
                                                 new Date().toISOString() &&
                                                 user.role === "Student" &&
                                                 !event.confirmedCompleted &&

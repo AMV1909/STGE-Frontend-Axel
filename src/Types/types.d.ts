@@ -115,3 +115,10 @@ export type Worker = {
     email: string;
     picture: string;
 };
+
+export type Notification = {
+    _id: string;
+    content: string;
+    owner: string;
+    read: boolean;
+};

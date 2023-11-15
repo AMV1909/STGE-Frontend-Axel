@@ -28,5 +28,4 @@ export const tempUserSlice = createSlice({
 });
 
 export default tempUserSlice.reducer;
-
 export const { setTempUserInfo, deleteTempUserInfo } = tempUserSlice.actions;

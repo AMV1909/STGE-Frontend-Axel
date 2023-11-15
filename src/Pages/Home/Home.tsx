@@ -20,6 +20,8 @@ export function Home() {
     const navigate = useNavigate();
     const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
 
+    console.log(tutors);
+
     useEffect(() => {
         document.title = "Home - STGE";
 

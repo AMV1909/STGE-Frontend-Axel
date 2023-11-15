@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Toast, toast } from "react-hot-toast";
 import { RatingStar } from "rating-star";
 
+import { socket } from "../../../Socket";
 import {
     acceptEvent,
     rejectEvent,
@@ -77,6 +78,8 @@ export function ToastEvent({
                 toast.dismiss("loading");
                 toast.success("Evento aceptado");
 
+                socket.emit("accept-event", event._id);
+
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
                 );
@@ -109,6 +112,8 @@ export function ToastEvent({
             .then(() => {
                 toast.dismiss("loading");
                 toast.success("Evento rechazado");
+
+                socket.emit("reject-event", event._id);
 
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
@@ -143,6 +148,8 @@ export function ToastEvent({
                 toast.dismiss("loading");
                 toast.success("Evento cancelado");
 
+                socket.emit("cancel-requested-event", event._id);
+
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
                 );
@@ -175,6 +182,8 @@ export function ToastEvent({
             .then(() => {
                 toast.dismiss("loading");
                 toast.success("Evento cancelado");
+
+                socket.emit("cancel-scheduled-event", event._id);
 
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
@@ -211,6 +220,12 @@ export function ToastEvent({
             .then(() => {
                 toast.dismiss("loading");
                 toast.success("Evento completado");
+
+                if (event.confirmedCompleted === 1) {
+                    socket.emit("complete-event-student", event._id);
+                } else {
+                    socket.emit("complete-event-tutor", event._id);
+                }
 
                 if (!event.confirmedCompleted) {
                     setEvents((events) =>

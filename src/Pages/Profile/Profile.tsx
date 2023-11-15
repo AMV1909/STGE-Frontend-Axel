@@ -35,12 +35,12 @@ export function Profile() {
                     </>
                 )}
 
-                {user.role === "Tutor" && user.meetingTime && (
+                {user.role === "Tutor" && (
                     <p>
                         {/* Mostrar el tiempo en horas, minutos y segundos, por defecto está en minutos*/}
                         Tiempo en reunión:{" "}
                         <p>
-                            {new Date(user.meetingTime * 60000)
+                            {new Date(user.meetingTime! * 60000)
                                 .toISOString()
                                 .substr(11, 8)}
                         </p>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import FullCalendar from "@fullcalendar/react";
 
+import { socket } from "../../Socket";
 import { useAppSelector } from "../../Hooks/store";
 import { Calendar } from "../Calendar/Calendar";
 import { requestEvent } from "../../API/Events";
@@ -46,6 +47,13 @@ export function HomeFunctions({
     const handleContinue = async () => {
         await requestEvent(selectedDates)
             .then(() => {
+                socket.emit(
+                    "event-requested",
+                    user._id,
+                    selectedTutor!._id,
+                    selectedDates[0].course
+                );
+                
                 toast.success("Tutoría agendada con éxito", { duration: 5000 });
             })
             .catch((err: AxiosError) => {

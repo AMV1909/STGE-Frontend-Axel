@@ -9,26 +9,27 @@ import "./TutorCard.css";
 
 interface Props {
     tutor: Tutor;
-    setSelectedTutor: Dispatch<any>
+    setSelectedTutor: Dispatch<any>;
 }
 
 export function TutorCard({ tutor, setSelectedTutor }: Props) {
     const user = useAppSelector((state) => state.user);
 
     const onClick = () => {
-        if (user.role !== "Student") {
+        if (user.role === "Student") {
+            return setSelectedTutor(tutor);
+        } else {
             if (
                 window.location.pathname === PathRoutes.TutorsList &&
-                user.role !== "Worker" &&
-                user.role !== "Admin"
+                (user.role === "Worker" || user.role === "Admin")
             )
-                return toast.error(
-                    "Solo los estudiantes pueden seleccionar tutores para agendar tutorías",
-                    { duration: 5000 }
-                );
+                return setSelectedTutor(tutor);
         }
 
-        setSelectedTutor(tutor);
+        toast.error(
+            "Solo los estudiantes pueden seleccionar tutores para agendar tutorías",
+            { duration: 5000 }
+        );
     };
 
     return (

@@ -1,3 +1,5 @@
+import MemoizedSocketListener from "./SocketListener/SocketListener";
+
 export { Navbar } from "./Navbar/Navbar";
 export { SplitTitle } from "./SplitTitle/SplitTitle";
 export { SelectableCourse } from "./SelectableCourse/SelectableCourse";
@@ -12,3 +14,5 @@ export { TutorInfo } from "./TutorInfo/TutorInfo";
 export { WorkerCard } from "./WorkerCard/WorkerCard";
 export { WorkerModal } from "./WorkerModal/WorkerModal";
 export { ToastDeleteWorker } from "./Toast/ToastDeleteWorker/ToastDeleteWorker";
+export { MemoizedSocketListener as SocketListener };
+export { Notifications } from "./Notifications/Notifications";

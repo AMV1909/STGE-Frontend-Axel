@@ -1,15 +1,17 @@
 import { AxiosError } from "axios";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import { IoNotifications } from "react-icons/io5";
+import { MdNotificationsActive } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { toast } from "react-hot-toast";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+import { Notifications } from "..";
 import { searchTutors } from "../../API/Tutors";
-import { PathRoutes, Tutor } from "../../Types/types.d";
+import { getNotifications } from "../../API/Notifications";
+import { Notification, PathRoutes, Tutor } from "../../Types/types.d";
 import { useAppSelector } from "../../Hooks/store";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
@@ -29,11 +31,35 @@ export function Navbar() {
     const user = useAppSelector((state) => state.user);
     const { logoutUser } = useUserActions();
     const { setSearchingTutors, resetTutors } = useTutorsActions();
+    const [notifications, setNotifications] = useState<Notification[]>([]);
+    const [showNotifications, setShowNotifications] = useState(false);
     const [toggle, setToggle] = useState(false);
     const [data, setData] = useState({
         type_search: "name",
         search: "",
     });
+
+    const fetchNotifications = async () => {
+        await getNotifications()
+            .then((notifications: Notification[]) => {
+                console.log(notifications);
+                setNotifications(notifications);
+            })
+            .catch((err: AxiosError) => {
+                toast.error("Error al obtener notificaciones", {
+                    duration: 5000,
+                });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate(PathRoutes.Login);
+                    return toast.error("La sesión ha expirado");
+                }
+            });
+    };
 
     const onChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => {
         setData({
@@ -67,11 +93,21 @@ export function Navbar() {
             });
     };
 
+    useEffect(() => {
+        if (showNotifications) {
+            fetchNotifications();
+        }
+    }, [showNotifications]);
+
     if (!loggedRoutes.includes(window.location.pathname as PathRoutes))
         return null;
 
     return (
         <nav>
+            {showNotifications && (
+                <Notifications notifications={notifications} />
+            )}
+
             <div className="stge__navbar-links">
                 <Link to={PathRoutes.Home} onClick={() => resetTutors()}>
                     <img src={unab_logo} alt="Logo UNAB" />
@@ -108,8 +144,10 @@ export function Navbar() {
                 </form>
 
                 <div>
-                    <button>
-                        <IoNotifications size={24} />
+                    <button
+                        onClick={() => setShowNotifications(!showNotifications)}
+                    >
+                        <MdNotificationsActive size={24} />
                     </button>
 
                     <button onClick={() => navigate(PathRoutes.Profile)}>

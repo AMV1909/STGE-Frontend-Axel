@@ -78,12 +78,6 @@ export function Schedule() {
         setSelectedDates([]);
     };
 
-    // !Fix: For some reason, the toast is rendered multiple times, so we need to
-    // !     check if the toast is already rendered.
-    socket.on(`all-events-rejected-${user._id}`, () => {
-        toast.success("Todas las solicitudes de tutorías han sido rechazadas.");
-    });
-
     return (
         <div className="stge__profileTabs-schedule">
             <h1>Mis Horarios</h1>

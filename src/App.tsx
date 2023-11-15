@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { ProtectedRoute } from "./Auth/ProtectedRoute";
 import { PageLoader } from "./Components/PageLoader/PageLoader";
 import { PathRoutes } from "./Types/types.d";
-import { Navbar } from "./Components";
+import { Navbar, SocketListener } from "./Components";
 import {
     Home,
     Login,
@@ -29,6 +29,7 @@ export function App() {
             ) : (
                 <Router>
                     <Navbar />
+                    <SocketListener />
 
                     <Routes>
                         <Route

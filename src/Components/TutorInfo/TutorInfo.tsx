@@ -35,6 +35,13 @@ export function TutorInfo({
                             {selectedTutor.coursesToTeach.name} (
                             {selectedTutor.coursesToTeach.grade})
                         </p>
+
+                        <p>
+                            <strong>Tiempo en reunión: </strong>
+                            {new Date(selectedTutor.meetingTime * 60000)
+                                .toISOString()
+                                .substr(11, 8)}
+                        </p>
                     </div>
 
                     <table>
