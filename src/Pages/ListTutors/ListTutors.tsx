@@ -6,7 +6,7 @@ import { AxiosError } from "axios";
 import { getTutorsWithEvents } from "../../API/Tutors";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { TutorCard, TutorInfo } from "../../Components";
-import { Tutor, TutorWithEvents } from "../../Types/types.d";
+import { PathRoutes, Tutor, TutorWithEvents } from "../../Types/types.d";
 
 import "./ListTutors.css";
 
@@ -22,7 +22,7 @@ export function ListTutors() {
     const originalTutors = useRef<TutorWithEvents[]>([]);
 
     useEffect(() => {
-        document.title = "Tutores - STGE";
+        document.title = "Tutores - Plan Padrino";
 
         getTutorsWithEvents()
             .then((data: TutorWithEvents[]) => {
@@ -37,7 +37,7 @@ export function ListTutors() {
 
                 if (err.response.status === 500) {
                     logoutUser();
-                    navigate("/login");
+                    navigate(PathRoutes.Login);
                     return toast.error("La sesión ha expirado");
                 }
             });

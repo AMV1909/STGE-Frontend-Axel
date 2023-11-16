@@ -11,7 +11,7 @@ export function Profile() {
     const [tab, setTab] = useState<ProfileTabs>("");
 
     useEffect(() => {
-        document.title = "Perfil - STGE";
+        document.title = "Perfil - Plan Padrino";
     }, []);
 
     return (

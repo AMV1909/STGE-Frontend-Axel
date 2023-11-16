@@ -44,57 +44,64 @@ export function TutorInfo({
                         </p>
                     </div>
 
-                    <table>
-                        <thead>
-                            <th>Estudiante</th>
-                            <th>Curso</th>
-                            <th>Fecha de inicio</th>
-                            <th>Fecha de finalización</th>
-                            <th>Estado</th>
-                        </thead>
+                    {selectedTutor.events.length > 0 ? (
+                        <table>
+                            <thead>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Fecha de inicio</th>
+                                <th>Fecha de finalización</th>
+                                <th>Estado</th>
+                            </thead>
 
-                        <tbody>
-                            {selectedTutor.events.map((event) => {
-                                let start = new Date(
-                                    event.start
-                                ).toLocaleDateString("es-CO", {
-                                    weekday: "long",
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                    hour: "numeric",
-                                    minute: "numeric",
-                                });
+                            <tbody>
+                                {selectedTutor.events.map((event) => {
+                                    let start = new Date(
+                                        event.start
+                                    ).toLocaleDateString("es-CO", {
+                                        weekday: "long",
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                    });
 
-                                let end = new Date(
-                                    event.end
-                                ).toLocaleDateString("es-CO", {
-                                    weekday: "long",
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                    hour: "numeric",
-                                    minute: "numeric",
-                                });
+                                    let end = new Date(
+                                        event.end
+                                    ).toLocaleDateString("es-CO", {
+                                        weekday: "long",
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                    });
 
-                                start =
-                                    start.charAt(0).toUpperCase() +
-                                    start.slice(1);
-                                end =
-                                    end.charAt(0).toUpperCase() + end.slice(1);
+                                    start =
+                                        start.charAt(0).toUpperCase() +
+                                        start.slice(1);
+                                    end =
+                                        end.charAt(0).toUpperCase() +
+                                        end.slice(1);
 
-                                return (
-                                    <tr key={event._id}>
-                                        <td>{event.student.name}</td>
-                                        <td>{event.course}</td>
-                                        <td>{start}</td>
-                                        <td>{end}</td>
-                                        <td>{TypeString[event.type]}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                                    return (
+                                        <tr key={event._id}>
+                                            <td>{event.student.name}</td>
+                                            <td>{event.course}</td>
+                                            <td>{start}</td>
+                                            <td>{end}</td>
+                                            <td>{TypeString[event.type]}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <p className="stge__home-functions_tutor_noEvents">
+                            El tutor no tiene eventos registrados
+                        </p>
+                    )}
                 </div>
             ) : (
                 <div className="stge__home-functions_unselectedTutor">

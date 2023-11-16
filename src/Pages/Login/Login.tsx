@@ -19,7 +19,7 @@ export function Login() {
     });
 
     useEffect(() => {
-        document.title = "Login - STGE";
+        document.title = "Login - Plan Padrino";
     }, []);
 
     const onChange = (e: FormEvent<HTMLInputElement>) => {

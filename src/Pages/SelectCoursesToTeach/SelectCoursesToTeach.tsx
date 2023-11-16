@@ -19,7 +19,7 @@ export function SelectCoursesToTeach() {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
 
     useEffect(() => {
-        document.title = "Seleccionar cursos - STGE";
+        document.title = "Seleccionar cursos - Plan Padrino";
     }, []);
 
     const handleSelectCourse = (course: Course) => {

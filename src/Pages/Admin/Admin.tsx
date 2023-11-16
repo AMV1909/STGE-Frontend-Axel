@@ -43,8 +43,7 @@ export function Admin() {
     };
 
     useEffect(() => {
-        document.title = "Admin - STGE";
-
+        document.title = "Admin - Plan Padrino";
         fetch();
     }, []);
 

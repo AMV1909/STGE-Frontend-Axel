@@ -23,7 +23,7 @@ export function Home() {
     console.log(tutors);
 
     useEffect(() => {
-        document.title = "Home - STGE";
+        document.title = "Home - Plan Padrino";
 
         if (tutors.length === 0 || tutors[0]._id !== "") return;
 

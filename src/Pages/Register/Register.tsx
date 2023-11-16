@@ -16,7 +16,7 @@ export function Register() {
     });
 
     useEffect(() => {
-        document.title = "Registro - STGE";
+        document.title = "Registro - Plan Padrino";
     }, []);
 
     const onChange = (e: FormEvent<HTMLInputElement>) => {
