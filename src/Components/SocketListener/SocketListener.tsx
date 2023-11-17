@@ -14,7 +14,7 @@ function SocketListener() {
     });
 
     socket.on(`event-rejected-${user._id}`, async (eventRejected) => {
-        toast.success(
+        toast.error(
             `Tu solicitud de tutoría de ${eventRejected.course} ha sido rechazada.`,
             {
                 duration: 5000,
@@ -32,7 +32,7 @@ function SocketListener() {
     });
 
     socket.on(`event-cancelled-${user._id}`, async (eventCanceled) => {
-        toast.success(
+        toast.error(
             `La tutoría de ${eventCanceled.course} ha sido cancelada.`,
             {
                 duration: 5000,
