@@ -26,14 +26,13 @@ export function TutorInfo({
                         <p>{selectedTutor.name}</p>
 
                         <p>
-                            <strong>Carrera: </strong>
-                            {selectedTutor.career}
+                            <strong>ID: </strong>
+                            {selectedTutor._id}
                         </p>
 
                         <p>
-                            <strong>Curso: </strong>
-                            {selectedTutor.coursesToTeach.name} (
-                            {selectedTutor.coursesToTeach.grade})
+                            <strong>Carrera: </strong>
+                            {selectedTutor.career}
                         </p>
 
                         <p>
