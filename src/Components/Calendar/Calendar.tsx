@@ -324,7 +324,7 @@ export function Calendar({
                 selectOverlap={false}
                 locale="es"
             />
-            
+
             <div className="stge__calendar-selectedDates">
                 {selectedDates.length > 0 && (
                     <>
@@ -392,6 +392,7 @@ export function Calendar({
                                         </li>
 
                                         <button
+                                            name="delete-date"
                                             onClick={() =>
                                                 handleDeleteDate(date.start)
                                             }

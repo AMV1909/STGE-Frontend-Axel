@@ -42,22 +42,13 @@
     justify-content: space-between;
 }
 
-.stge__tutorCard-information_data {
-    display: flex;
-    flex-direction: column;
-}
-
-.stge__tutorCard-information_data p {
-    display: inline;
-    font-weight: bold;
-}
-
 .stge__tutorCard-information > p {
     text-align: end;
 }
 
-.stge__tutorCard-information p p {
-    font-weight: normal;
+.stge__tutorCard-information_data {
+    display: flex;
+    flex-direction: column;
 }
 
 .stge__tutorCard-information_score {

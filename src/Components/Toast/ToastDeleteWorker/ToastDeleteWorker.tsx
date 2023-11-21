@@ -48,9 +48,13 @@ export function ToastDeleteWorker({ t, worker, fetch }: Props) {
             </p>
 
             <div className="stge__toastDeleteWorker-buttons">
-                <button onClick={handleDelete}>Eliminar</button>
+                <button name="delete-worker" onClick={handleDelete}>
+                    Eliminar
+                </button>
 
-                <button onClick={() => toast.dismiss(t.id)}>Cancelar</button>
+                <button name="cancel" onClick={() => toast.dismiss(t.id)}>
+                    Cancelar
+                </button>
             </div>
         </div>
     );

@@ -40,10 +40,12 @@ export function TutorCard({ tutor, setSelectedTutor }: Props) {
                 <div>
                     <div className="stge__tutorCard-information_data">
                         <p>
-                            Nombre: <p>{tutor.name}</p>
+                            <strong>Nombre: </strong>
+                            {tutor.name}
                         </p>
                         <p>
-                            Carrera: <p>{tutor.career}</p>
+                            <strong>Carrera: </strong>
+                            {tutor.career}
                         </p>
                     </div>
 

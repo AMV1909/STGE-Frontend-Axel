@@ -84,6 +84,7 @@ export function Admin() {
                     />
 
                     <button
+                        name="create-worker"
                         onClick={() => {
                             setShowModal(true);
                             setWorkerSelected(null);
@@ -108,8 +109,8 @@ export function Admin() {
                         ))
                     ) : (
                         <h3>
-                            No se ha encontrado ningún trabajador con la búsqueda
-                            proporcionada
+                            No se ha encontrado ningún trabajador con la
+                            búsqueda proporcionada
                         </h3>
                     )}
                 </div>

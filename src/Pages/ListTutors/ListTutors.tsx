@@ -85,6 +85,7 @@ export function ListTutors() {
                     />
 
                     <button
+                        name="filter-tutors-with-80-hours"
                         className={`${!toggle && "off"}`}
                         onClick={() => setToggle(!toggle)}
                     >

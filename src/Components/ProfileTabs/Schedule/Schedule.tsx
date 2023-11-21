@@ -84,7 +84,10 @@ export function Schedule() {
 
             {isSelecting ? (
                 <div className="stge__profileTabs-schedule_info">
-                    <button onClick={handleConfirmSelection}>
+                    <button
+                        name="confirm-selection"
+                        onClick={handleConfirmSelection}
+                    >
                         Confirmar Selección
                     </button>
 
@@ -97,7 +100,10 @@ export function Schedule() {
                         una fecha, puedes dar click en el botón de la papelera.
                     </p>
 
-                    <button onClick={handleCancelSelection}>
+                    <button
+                        name="cancel-selection"
+                        onClick={handleCancelSelection}
+                    >
                         Cancelar Selección
                     </button>
                 </div>
@@ -113,7 +119,10 @@ export function Schedule() {
                         modificar tu horario, debes completarlas primero.
                     </p>
 
-                    <button onClick={() => changeToSelect()}>
+                    <button
+                        name="activate-selection"
+                        onClick={() => changeToSelect()}
+                    >
                         Activar Modo de Selección
                     </button>
                 </div>

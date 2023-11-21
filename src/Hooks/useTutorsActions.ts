@@ -10,7 +10,6 @@ export const useTutorsActions = () => {
     const dispatch = useAppDispatch();
 
     const setTutors = (tutors: Tutor[]) => {
-        console.log("Tutors: ", tutors);
         dispatch(setTutorsInfo(tutors));
     };
 

@@ -138,23 +138,30 @@ export function Navbar() {
                         onChange={onChange}
                     />
 
-                    <button type="submit">
+                    <button name="search" type="submit">
                         <BsSearch />
                     </button>
                 </form>
 
                 <div>
                     <button
+                        name="notifications"
                         onClick={() => setShowNotifications(!showNotifications)}
                     >
                         <MdNotificationsActive size={24} />
                     </button>
 
-                    <button onClick={() => navigate(PathRoutes.Profile)}>
+                    <button
+                        name="profile"
+                        onClick={() => navigate(PathRoutes.Profile)}
+                    >
                         <CgProfile size={24} />
                     </button>
 
-                    <button onClick={() => setToggle(!toggle)}>
+                    <button
+                        name="more_options"
+                        onClick={() => setToggle(!toggle)}
+                    >
                         {toggle ? <IoIosArrowDown /> : <GiHamburgerMenu />}
                     </button>
                 </div>
@@ -163,6 +170,7 @@ export function Navbar() {
             {toggle && (
                 <div className="stge__navbar-toggle">
                     <button
+                        name="logout"
                         onClick={() => {
                             logoutUser();
                             setToggle(false);

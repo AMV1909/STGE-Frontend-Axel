@@ -62,6 +62,7 @@ export function Register() {
 
                     <div id="google-register-button">
                         <button
+                            name="google-register"
                             type="button"
                             onClick={() => googleRegisterHook()}
                         >
@@ -87,7 +88,7 @@ export function Register() {
                         disabled
                     />
 
-                    <button type="button" disabled>
+                    <button name="register" type="button" disabled>
                         Registrarse
                     </button>
 

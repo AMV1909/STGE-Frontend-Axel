@@ -315,15 +315,23 @@ export function ToastEvent({
 
             <div className="stge__toastEvent-buttons">
                 {type === "Accept" && (
-                    <button onClick={handleAccept}>Aceptar</button>
+                    <button name="acept-requested-event" onClick={handleAccept}>
+                        Aceptar
+                    </button>
                 )}
 
                 {type === "Complete" && (
-                    <button onClick={handleComplete}>Completar</button>
+                    <button
+                        name="complete-schdulec-event"
+                        onClick={handleComplete}
+                    >
+                        Completar
+                    </button>
                 )}
 
                 {type === "CancelRequest" && (
                     <button
+                        name="cancel-requested-event"
                         className="red-button"
                         onClick={handleCancelRequest}
                     >
@@ -333,6 +341,7 @@ export function ToastEvent({
 
                 {type === "CancelSchedule" && (
                     <button
+                        name="cancel-scheduled-event"
                         className="red-button"
                         onClick={handleCancelSchedule}
                     >
@@ -341,12 +350,16 @@ export function ToastEvent({
                 )}
 
                 {type === "Reject" && (
-                    <button className="red-button" onClick={handleReject}>
+                    <button
+                        name="reject-requested-event"
+                        className="red-button"
+                        onClick={handleReject}
+                    >
                         Rechazar
                     </button>
                 )}
 
-                <button onClick={() => toast.dismiss(t.id)}>
+                <button name="cancel" onClick={() => toast.dismiss(t.id)}>
                     {type === "Accept" ||
                     type === "Reject" ||
                     type === "Complete"

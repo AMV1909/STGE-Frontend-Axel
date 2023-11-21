@@ -26,15 +26,6 @@
     border: 2px solid black;
 }
 
-.stge__profile-information p {
-    display: inline;
-    font-weight: bold;
-}
-
-.stge__profile-information p p {
-    font-weight: normal;
-}
-
 .stge__profile-information_buttons {
     margin-top: 1rem;
 

@@ -34,33 +34,25 @@ export function SelectableCourse({
                 <SlBookOpen />
 
                 <div>
-                    <p style={{ fontWeight: "bold" }}>
-                        Nombre del curso:{" "}
-                        <p style={{ fontWeight: "normal" }}>{course.name}</p>
+                    <p>
+                        <strong>Nombre del curso: </strong>
+                        {course.name}
                     </p>
-                    <p style={{ fontWeight: "bold" }}>
-                        Nota Final:{" "}
-                        <p
-                            style={{
-                                fontWeight: "normal",
-                                color:
-                                    course.grade >= 3.8 ? "#008f39" : "#ff0000",
-                            }}
-                        >
-                            {course.grade}
-                        </p>
+                    <p
+                        style={{
+                            color: course.grade >= 3.8 ? "#008f39" : "#ff0000",
+                        }}
+                    >
+                        <strong style={{ color: "black" }}>Nota Final: </strong>
+                        {course.grade}
                     </p>
-                    <p style={{ fontWeight: "bold" }}>
-                        Aprobado:{" "}
-                        <p
-                            style={{
-                                fontWeight: "normal",
-                                color:
-                                    course.grade >= 3.8 ? "#008f39" : "#ff0000",
-                            }}
-                        >
-                            {course.grade >= 3.8 ? "Sí" : "No"}
-                        </p>
+                    <p
+                        style={{
+                            color: course.grade >= 3.8 ? "#008f39" : "#ff0000",
+                        }}
+                    >
+                        <strong style={{ color: "black" }}>Aprobado:</strong>
+                        {course.grade >= 3.8 ? "Sí" : "No"}
                     </p>
                 </div>
             </div>

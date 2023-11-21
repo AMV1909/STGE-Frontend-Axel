@@ -147,6 +147,7 @@ export function EventsList({
                                             {user.role === "Student" &&
                                                 type === "Requested" && (
                                                     <button
+                                                        name="cancel-request-event"
                                                         className="button-cancel"
                                                         onClick={() =>
                                                             onClick(
@@ -162,6 +163,7 @@ export function EventsList({
                                             {user.role === "Tutor" &&
                                                 type === "Requested" && (
                                                     <button
+                                                        name="accept-request-event"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
@@ -176,6 +178,7 @@ export function EventsList({
                                             {user.role === "Tutor" &&
                                                 type === "Requested" && (
                                                     <button
+                                                        name="reject-request-event"
                                                         className="button-cancel"
                                                         onClick={() =>
                                                             onClick(
@@ -193,6 +196,7 @@ export function EventsList({
                                                 event.start >
                                                     new Date().toISOString() && (
                                                     <button
+                                                        name="cancel-schedule-event"
                                                         className="button-cancel"
                                                         onClick={() =>
                                                             onClick(
@@ -214,6 +218,7 @@ export function EventsList({
                                                 event.end <
                                                     new Date().toISOString() && (
                                                     <button
+                                                        name="complete-event"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,

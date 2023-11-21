@@ -70,15 +70,16 @@ export function SelectCoursesToTeach() {
         <main className="stge__selectCoursesToTeach">
             <div className="stge__selectCoursesToTeach-listCourses">
                 <h1>Seleccionar cursos</h1>
-                <p>
-                    Promedio General Acumulado (PGA):{" "}
-                    <p
-                        style={{
-                            color: tempUser.pga >= 3.8 ? "#008f39" : "#ff0000",
-                        }}
-                    >
-                        {tempUser && tempUser.pga}
-                    </p>
+                <p
+                    style={{
+                        color: tempUser.pga >= 3.8 ? "#008f39" : "#ff0000",
+                    }}
+                >
+                    <strong style={{ color: "black" }}>
+                        Promedio General Acumulado (PGA):{" "}
+                    </strong>
+
+                    {tempUser && tempUser.pga}
                 </p>
 
                 <div className="stge__selectCoursesToTeach-listCourses_container">
@@ -108,7 +109,10 @@ export function SelectCoursesToTeach() {
                     )}
 
                     <div className="stge__selectCoursesToTeach-listCourses_container-button">
-                        <button onClick={() => navigate(PathRoutes.Register)}>
+                        <button
+                            name="go-back"
+                            onClick={() => navigate(PathRoutes.Register)}
+                        >
                             <BsArrowLeft size={24} />
                             Regresar
                         </button>
@@ -117,6 +121,7 @@ export function SelectCoursesToTeach() {
                             tempUser.courses &&
                             tempUser.pga >= 3.8 && (
                                 <button
+                                    name="continue"
                                     disabled={selectedCourses.length === 0}
                                     onClick={handleContinue}
                                 >

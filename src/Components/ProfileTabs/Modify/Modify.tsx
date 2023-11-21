@@ -133,6 +133,7 @@ export function Modify() {
 
             <div className="stge__profileTabs-modify_button">
                 <button
+                    name="modify-courses"
                     onClick={handleContinue}
                     disabled={
                         selectedCourses.length === 0 ||

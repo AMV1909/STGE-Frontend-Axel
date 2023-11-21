@@ -161,7 +161,9 @@ export function ToastRole({ t }: { t: Toast }) {
                     <option value="Tutor">Tutor</option>
                 </select>
 
-                <button type="submit">Continuar</button>
+                <button name="continue" type="submit">
+                    Continuar
+                </button>
             </form>
         </div>
     );

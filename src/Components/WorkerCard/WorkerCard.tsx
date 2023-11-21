@@ -42,8 +42,13 @@ export function WorkerCard({
             <h3>{worker.name}</h3>
 
             <div className="stge__workerCard-buttons">
-                <button onClick={handleEdit}>Editar</button>
-                <button onClick={handleDelete}>Eliminar</button>
+                <button name="edit-worker" onClick={handleEdit}>
+                    Editar
+                </button>
+
+                <button name="detele-worker" onClick={handleDelete}>
+                    Eliminar
+                </button>
             </div>
         </div>
     );

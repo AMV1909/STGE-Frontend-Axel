@@ -53,7 +53,7 @@ export function HomeFunctions({
                     selectedTutor!._id,
                     selectedDates[0].course
                 );
-                
+
                 toast.success("Tutoría agendada con éxito", { duration: 5000 });
             })
             .catch((err: AxiosError) => {
@@ -110,7 +110,10 @@ export function HomeFunctions({
                         </div>
                     </div>
 
-                    <button onClick={() => changeToSelect()}>
+                    <button
+                        name="cancel-selection"
+                        onClick={() => changeToSelect()}
+                    >
                         {isSelecting ? "Cancelar Selección" : "Nueva Tutoría"}
                     </button>
 
@@ -129,7 +132,11 @@ export function HomeFunctions({
                     />
 
                     {isSelecting && selectedDates.length > 0 && (
-                        <button id="continue" onClick={handleContinue}>
+                        <button
+                            id="continue"
+                            name="add-event"
+                            onClick={handleContinue}
+                        >
                             Agendar Tutoría
                         </button>
                     )}

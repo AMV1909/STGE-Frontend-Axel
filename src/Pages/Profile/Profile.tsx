@@ -18,62 +18,79 @@ export function Profile() {
         <main className="stge__profile">
             <div className="stge__profile-information">
                 <img src={user.picture} alt={user.name} />
+
+                <strong>{user.name}</strong>
+
                 <p>
-                    <p>{user.name}</p>
+                    <strong>ID: </strong>
+                    {user._id}
                 </p>
-                <p>
-                    ID: <p>{user._id}</p>
-                </p>
+
                 {(user.role === "Tutor" || user.role === "Student") && (
                     <>
                         <p>
-                            Carrera: <p>{user.career}</p>
+                            <strong>Carrera: </strong>
+                            {user.career}
                         </p>
+
                         <p>
-                            PGA: <p>{user.pga}</p>
+                            <strong>PGA: </strong>
+                            {user.pga}
                         </p>
                     </>
                 )}
 
                 {user.role === "Tutor" && (
                     <p>
-                        {/* Mostrar el tiempo en horas, minutos y segundos, por defecto está en minutos*/}
-                        Tiempo en reunión:{" "}
-                        <p>
-                            {new Date(user.meetingTime! * 60000)
-                                .toISOString()
-                                .substr(11, 8)}
-                        </p>
+                        <strong>Tiempo en reunión: </strong>
+                        {new Date(user.meetingTime! * 60000)
+                            .toISOString()
+                            .substr(11, 8)}
                     </p>
                 )}
 
                 <div className="stge__profile-information_buttons">
                     {user.role === "Tutor" && (
-                        <button onClick={() => setTab("schedule")}>
+                        <button
+                            name="schedule-tab"
+                            onClick={() => setTab("schedule")}
+                        >
                             Horarios
                         </button>
                     )}
 
                     {(user.role === "Student" || user.role === "Tutor") && (
-                        <button onClick={() => setTab("requested")}>
+                        <button
+                            name="requested-events-tab"
+                            onClick={() => setTab("requested")}
+                        >
                             Reuniones Solicitadas
                         </button>
                     )}
 
                     {(user.role === "Tutor" || user.role === "Student") && (
-                        <button onClick={() => setTab("scheduled")}>
+                        <button
+                            name="scheduled-events-tab"
+                            onClick={() => setTab("scheduled")}
+                        >
                             Reuniones Agendadas
                         </button>
                     )}
 
                     {(user.role === "Tutor" || user.role === "Student") && (
-                        <button onClick={() => setTab("completed")}>
+                        <button
+                            name="completed-events-tab"
+                            onClick={() => setTab("completed")}
+                        >
                             Reuniones Completadas
                         </button>
                     )}
 
                     {user.role === "Tutor" && (
-                        <button onClick={() => setTab("modify")}>
+                        <button
+                            name="modify-courses-to-teach-tab"
+                            onClick={() => setTab("modify")}
+                        >
                             Modificar Asignaturas A Impartir
                         </button>
                     )}

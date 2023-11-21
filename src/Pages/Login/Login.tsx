@@ -95,7 +95,11 @@ export function Login() {
                     <h1>Login</h1>
 
                     <div id="google-login-button">
-                        <button type="button" onClick={() => googleLoginHook()}>
+                        <button
+                            name="google-login"
+                            type="button"
+                            onClick={() => googleLoginHook()}
+                        >
                             Iniciar Sesión con Google 🚀
                         </button>
                     </div>
@@ -120,7 +124,9 @@ export function Login() {
                         disabled
                     />
 
-                    <button disabled>Iniciar Sesión</button>
+                    <button name="login" disabled>
+                        Iniciar Sesión
+                    </button>
 
                     <Link to={PathRoutes.Register}>Registrarse</Link>
                 </form>

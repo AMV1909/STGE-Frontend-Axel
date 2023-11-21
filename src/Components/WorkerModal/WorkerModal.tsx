@@ -149,7 +149,11 @@ export function WorkerModal({
             <div className="stge__workerModal-content">
                 <header>
                     <h1>{type === "Create" ? "Crear" : "Actualizar"} Tutor</h1>
-                    <button onClick={() => setShowModal(false)}>
+
+                    <button
+                        name="close-modal"
+                        onClick={() => setShowModal(false)}
+                    >
                         <IoIosCloseCircleOutline />
                     </button>
                 </header>
@@ -192,7 +196,7 @@ export function WorkerModal({
                         <p>No se cargado una imagen</p>
                     )}
 
-                    <button type="submit">
+                    <button name="create-worker" type="submit">
                         {type === "Create" ? "Crear" : "Actualizar"}
                     </button>
                 </form>
