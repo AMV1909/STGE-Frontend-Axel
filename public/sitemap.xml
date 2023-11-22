@@ -1,0 +1,11 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://plan-padrino.pages.dev/sitemap/0.9">
+  <url><loc>/</loc></url>
+<url><loc>/login</loc></url>
+<url><loc>/register</loc></url>
+<url><loc>/select-courses-to-teach</loc></url>
+<url><loc>/tutors-list</loc></url>
+<url><loc>/admin</loc></url>
+<url><loc>/profile</loc></url>
+</urlset>
