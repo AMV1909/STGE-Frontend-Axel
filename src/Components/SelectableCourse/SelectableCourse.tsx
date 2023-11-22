@@ -22,6 +22,7 @@ export function SelectableCourse({
                         : { appearance: "none", cursor: "auto" }
                 }
                 type="checkbox"
+                aria-label={course.name}
                 name={course.name}
                 id={course.nrc}
                 onClick={() =>
