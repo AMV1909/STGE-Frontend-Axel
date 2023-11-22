@@ -392,7 +392,7 @@ export function Calendar({
                                         </li>
 
                                         <button
-                                            name="delete-date"
+                                            aria-label="Delete Date"
                                             onClick={() =>
                                                 handleDeleteDate(date.start)
                                             }

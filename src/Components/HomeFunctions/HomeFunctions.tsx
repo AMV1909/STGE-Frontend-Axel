@@ -111,7 +111,9 @@ export function HomeFunctions({
                     </div>
 
                     <button
-                        name="cancel-selection"
+                        aria-label={
+                            isSelecting ? "Cancel Selection" : "New Tutoring"
+                        }
                         onClick={() => changeToSelect()}
                     >
                         {isSelecting ? "Cancelar Selección" : "Nueva Tutoría"}
@@ -134,7 +136,7 @@ export function HomeFunctions({
                     {isSelecting && selectedDates.length > 0 && (
                         <button
                             id="continue"
-                            name="add-event"
+                            aria-label="Add Tutoring"
                             onClick={handleContinue}
                         >
                             Agendar Tutoría

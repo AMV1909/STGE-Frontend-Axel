@@ -124,7 +124,7 @@ export function Navbar() {
 
             <div className="stge__navbar-functions">
                 <form onSubmit={handleSubmit}>
-                    <select name="type_search" onChange={onChange}>
+                    <select aria-label="Search Type" name="type_search">
                         <option value="name">Nombre</option>
                         <option value="course">Curso</option>
                     </select>
@@ -138,28 +138,28 @@ export function Navbar() {
                         onChange={onChange}
                     />
 
-                    <button name="search" type="submit">
+                    <button aria-label="Search" type="submit">
                         <BsSearch />
                     </button>
                 </form>
 
                 <div>
                     <button
-                        name="notifications"
+                        aria-label="Notifications"
                         onClick={() => setShowNotifications(!showNotifications)}
                     >
                         <MdNotificationsActive size={24} />
                     </button>
 
                     <button
-                        name="profile"
+                        aria-label="Profile"
                         onClick={() => navigate(PathRoutes.Profile)}
                     >
                         <CgProfile size={24} />
                     </button>
 
                     <button
-                        name="more_options"
+                        aria-label="More Options"
                         onClick={() => setToggle(!toggle)}
                     >
                         {toggle ? <IoIosArrowDown /> : <GiHamburgerMenu />}
@@ -170,7 +170,7 @@ export function Navbar() {
             {toggle && (
                 <div className="stge__navbar-toggle">
                     <button
-                        name="logout"
+                        aria-label="Logout"
                         onClick={() => {
                             logoutUser();
                             setToggle(false);
