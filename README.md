@@ -40,10 +40,12 @@ npm install
 
 ```
 # Backend API
-VITE_API_URL = "http://localhost:3000/api"
+VITE_API_SOCKET_URL = ""
+VITE_API_URL = ""
 
 # Google API
-VITE_GOOGLE_CLIENT_ID = "794172397872-2ej6omeqm6n4hv81r43j2amodvdn817r.apps.googleusercontent.com"
+VITE_GOOGLE_CLIENT_ID = ""
+VITE_GOOGLE_CLIENT_SECRET = ""
 ```
 
 4. Run the project:
