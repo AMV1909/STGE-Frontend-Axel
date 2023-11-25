@@ -19,6 +19,10 @@ For this project we used the following technologies:
 
 -   [Vite](https://vitejs.dev/): Next Generation Frontend Tooling.
 -   [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+-   [TypeScript](https://www.typescriptlang.org/): Typed JavaScript at Any Scale.
+-   [Redux](https://redux.js.org/): A Predictable State Container for JS Apps.
+-   [Google API](https://developers.google.com/identity/protocols/oauth2): OAuth 2.0 is the industry-standard protocol for authorization.
+-   [Socket.io](https://socket.io/): Socket.IO enables real-time, bidirectional and event-based communication.
 
 ## Installation
 
