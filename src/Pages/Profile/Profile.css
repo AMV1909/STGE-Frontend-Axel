@@ -17,6 +17,8 @@
 
     border-right: 1px solid rgba(0, 0, 0, 0.176);
     text-align: center;
+
+    overflow-y: auto;
 }
 
 .stge__profile-information img {
@@ -50,6 +52,17 @@
 
 .stge__profile-component #close {
     right: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .stge__profile-information {
+        padding: 1rem;
+    }
+
+    .stge__profile-information img {
+        width: 128px;
+        height: 128px;
+    }
 }
 
 @media screen and (max-width: 1000px) {

@@ -22,11 +22,6 @@ export function Profile() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    useEffect(() => {
-        const image = new Image();
-        image.src = user.picture;
-    }, [user.picture]);
-
     return (
         <main className="stge__profile">
             <div className="stge__profile-information">

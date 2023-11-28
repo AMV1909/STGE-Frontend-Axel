@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { toast } from "react-hot-toast";
 
 import { ToastDeleteWorker } from "..";
@@ -21,11 +21,6 @@ export function WorkerCard({
     setWorkerSelected,
     fetch,
 }: Props) {
-    useEffect(() => {
-        const image = new Image();
-        image.src = worker.picture;
-    }, [worker.picture]);
-
     const handleEdit = () => {
         setTypeModal("Update");
         setWorkerSelected(worker);
