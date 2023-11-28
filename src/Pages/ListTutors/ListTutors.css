@@ -29,3 +29,15 @@
 .stge__home-tutors_filters button {
     border: 1px solid #1c4cb4;
 }
+
+@media screen and (max-width: 450px) {
+    .stge__home-tutors_filters {
+        padding: 2rem 1rem 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .stge__home-tutors_filters {
+        padding: 1rem 0.5rem 0;
+    }
+}

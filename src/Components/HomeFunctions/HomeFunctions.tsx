@@ -1,7 +1,8 @@
 import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
+import { IoCloseCircleOutline } from "react-icons/io5";
 import FullCalendar from "@fullcalendar/react";
 
 import { socket } from "../../Socket";
@@ -16,9 +17,12 @@ import "./HomeFunctions.css";
 
 export function HomeFunctions({
     selectedTutor,
+    setSelectedTutor,
 }: {
     selectedTutor: Tutor | null;
+    setSelectedTutor: Dispatch<SetStateAction<Tutor | null>>;
 }) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isSelecting, setIsSelecting] = useState(false);
     const [selectedDates, setSelectedDates] = useState<SelectedDates[]>([]);
     const calendarRef = useRef<FullCalendar | null>(null);
@@ -87,8 +91,28 @@ export function HomeFunctions({
         setSelectedDates([]);
     };
 
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, [selectedTutor]);
+
     return (
-        <div className="stge__home-functions">
+        <div
+            className={`${
+                windowWidth <= 900
+                    ? selectedTutor
+                        ? "stge__home-functions"
+                        : "hidden"
+                    : "stge__home-functions"
+            }`}
+        >
+            <button id="close" onClick={() => setSelectedTutor(null)}>
+                <IoCloseCircleOutline />
+            </button>
+
             {selectedTutor ? (
                 <div className="stge__home-functions_tutor">
                     <img src={selectedTutor.picture} alt={selectedTutor.name} />
@@ -96,18 +120,16 @@ export function HomeFunctions({
                     <div className="stge__home-functions_tutor-info">
                         <p>{selectedTutor.name}</p>
 
-                        <div className="p">
-                            <p>Carrera:</p>
-                            <p>{selectedTutor.career}</p>
-                        </div>
+                        <p>
+                            <strong>Carrera: </strong>
+                            {selectedTutor.career}
+                        </p>
 
-                        <div className="p">
-                            <p>Curso:</p>
-                            <p>
-                                {selectedTutor.coursesToTeach.name} (
-                                {selectedTutor.coursesToTeach.grade})
-                            </p>
-                        </div>
+                        <p>
+                            <strong>Curso: </strong>
+                            {selectedTutor.coursesToTeach.name} (
+                            {selectedTutor.coursesToTeach.grade})
+                        </p>
                     </div>
 
                     <button

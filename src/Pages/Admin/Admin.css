@@ -9,7 +9,7 @@
 .stge__admin-wrapper {
     height: 100%;
     width: 75%;
-    padding: 2rem 0;
+    padding: 2rem 0 1rem;
 
     display: flex;
     flex-direction: column;
@@ -39,5 +39,23 @@
     justify-content: center;
     gap: 1rem;
 
+    padding: 1rem;
     overflow-y: auto;
+}
+
+.stge__admin-workers h3 {
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .stge__admin-wrapper {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .stge__admin-wrapper {
+        width: 100%;
+        margin: 0 1rem;
+    }
 }

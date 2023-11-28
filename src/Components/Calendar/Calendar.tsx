@@ -62,6 +62,7 @@ export function Calendar({
     tutor,
     user,
 }: Props) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [events, setEvents] = useState<SelectedDates[]>([]);
     const [availableEvents, setAvailableEvents] = useState<SelectedDates[]>([]);
     const navigate = useNavigate();
@@ -259,6 +260,14 @@ export function Calendar({
         );
     };
 
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <>
             <FullCalendar
@@ -278,6 +287,9 @@ export function Calendar({
                         : events
                 }
                 dayPopoverFormat={{ month: "long", day: "numeric" }}
+                dayHeaderFormat={{
+                    weekday: windowWidth <= 400 ? "narrow" : "short",
+                }}
                 buttonText={{
                     today: "Hoy",
                     month: "Mes",

@@ -47,3 +47,36 @@
 .stge__selectableCourse-card p {
     display: inline-block;
 }
+
+@media screen and (max-width: 1310px) {
+    .stge__selectableCourse {
+        gap: 1rem;
+        padding-left: 0;
+    }
+
+    .stge__selectableCourse-card {
+        gap: 1rem;
+    }
+
+    .stge__selectableCourse-card svg {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .stge__selectableCourse-card svg {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .stge__selectableCourse {
+        padding-right: 0;
+        gap: 0.5rem;
+    }
+
+    .stge__selectableCourse-card {
+        padding: 0.75rem;
+    }
+}

@@ -42,7 +42,6 @@ export function Navbar() {
     const fetchNotifications = async () => {
         await getNotifications()
             .then((notifications: Notification[]) => {
-                console.log(notifications);
                 setNotifications(notifications);
             })
             .catch((err: AxiosError) => {
@@ -114,17 +113,25 @@ export function Navbar() {
                 </Link>
 
                 {(user.role === "Worker" || user.role === "Admin") && (
-                    <Link to={PathRoutes.TutorsList}>Listado de Tutores</Link>
+                    <Link id="list-tutors" to={PathRoutes.TutorsList}>
+                        Listado de Tutores
+                    </Link>
                 )}
 
                 {user.role === "Admin" && (
-                    <Link to={PathRoutes.Admin}>Administración</Link>
+                    <Link id="admin" to={PathRoutes.Admin}>
+                        Administración
+                    </Link>
                 )}
             </div>
 
             <div className="stge__navbar-functions">
-                <form onSubmit={handleSubmit}>
-                    <select aria-label="Search Type" name="type_search">
+                <form id="form" onSubmit={handleSubmit}>
+                    <select
+                        aria-label="Search Type"
+                        name="type_search"
+                        onChange={onChange}
+                    >
                         <option value="name">Nombre</option>
                         <option value="course">Curso</option>
                     </select>
@@ -145,13 +152,18 @@ export function Navbar() {
 
                 <div>
                     <button
+                        id="notifications"
                         aria-label="Notifications"
-                        onClick={() => setShowNotifications(!showNotifications)}
+                        onClick={() => {
+                            setShowNotifications(!showNotifications);
+                            setToggle(false);
+                        }}
                     >
                         <MdNotificationsActive size={24} />
                     </button>
 
                     <button
+                        id="profile"
                         aria-label="Profile"
                         onClick={() => navigate(PathRoutes.Profile)}
                     >
@@ -160,7 +172,10 @@ export function Navbar() {
 
                     <button
                         aria-label="More Options"
-                        onClick={() => setToggle(!toggle)}
+                        onClick={() => {
+                            setToggle(!toggle);
+                            setShowNotifications(false);
+                        }}
                     >
                         {toggle ? <IoIosArrowDown /> : <GiHamburgerMenu />}
                     </button>
@@ -169,16 +184,88 @@ export function Navbar() {
 
             {toggle && (
                 <div className="stge__navbar-toggle">
-                    <button
-                        aria-label="Logout"
-                        onClick={() => {
-                            logoutUser();
-                            setToggle(false);
-                            navigate(PathRoutes.Login);
-                        }}
-                    >
-                        Cerrar Sesión
-                    </button>
+                    <form id="toggle-form" onSubmit={handleSubmit}>
+                        <select
+                            aria-label="Search Type"
+                            name="type_search"
+                            onChange={onChange}
+                        >
+                            <option value="name">Nombre</option>
+                            <option value="course">Curso</option>
+                        </select>
+
+                        <input
+                            type="search"
+                            name="search"
+                            placeholder={`Buscar por ${
+                                data.type_search === "name" ? "nombre" : "curso"
+                            }`}
+                            onChange={onChange}
+                        />
+
+                        <button aria-label="Search" type="submit">
+                            <BsSearch />
+                        </button>
+                    </form>
+
+                    <div className="stge__navbar-toggle_buttons">
+                        {(user.role === "Worker" || user.role === "Admin") && (
+                            <button
+                                id="toggle-list-tutors"
+                                onClick={() => {
+                                    navigate(PathRoutes.TutorsList);
+                                    setToggle(false);
+                                }}
+                            >
+                                Listado de Tutores
+                            </button>
+                        )}
+
+                        {user.role === "Admin" && (
+                            <button
+                                id="toggle-admin"
+                                onClick={() => {
+                                    navigate(PathRoutes.Admin);
+                                    setToggle(false);
+                                }}
+                            >
+                                Administración
+                            </button>
+                        )}
+
+                        <button
+                            id="toggle-notifications"
+                            aria-label="Notifications"
+                            onClick={() => {
+                                setShowNotifications(!showNotifications);
+                                setToggle(false);
+                            }}
+                        >
+                            <MdNotificationsActive size={24} />
+                        </button>
+
+                        <button
+                            id="toggle-profile"
+                            aria-label="Profile"
+                            onClick={() => {
+                                navigate(PathRoutes.Profile);
+                                setToggle(false);
+                            }}
+                        >
+                            <CgProfile size={24} />
+                        </button>
+
+                        <button
+                            aria-label="Logout"
+                            onClick={() => {
+                                logoutUser();
+                                setToggle(false);
+                                navigate(PathRoutes.Login);
+                            }}
+                        >
+                            Cerrar Sesión
+                        </button>
+                    </div>
                 </div>
             )}
         </nav>

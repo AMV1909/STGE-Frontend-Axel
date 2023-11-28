@@ -40,27 +40,85 @@
     border: 2px solid black;
 }
 
+.stge__home-functions_tutor-info {
+    padding: 0 1rem;
+}
+
 .stge__home-functions_tutor p {
     font-size: larger;
     text-align: center;
 }
 
-.p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.p p:nth-child(1) {
-    font-weight: bold;
-}
-
-.p p {
-    display: inline;
-}
-
 #continue {
     margin-top: -1rem;
     margin-bottom: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#close {
+    display: none;
+
+    position: absolute;
+    right: 2rem;
+    border-radius: 100%;
+
+    padding: 0.5rem;
+
+    background-color: transparent;
+    color: black;
+
+    width: 48px;
+    height: 48px;
+
+    transition: 0.2s ease-in-out;
+}
+
+#close:hover {
+    background-color: rgba(0, 0, 0);
+    color: white;
+}
+
+#close svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+    #close {
+        display: block;
+    }
+
+    .stge__home-functions {
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        width: 100%;
+        height: 85%;
+        padding: 1rem;
+        overflow-y: auto;
+        background-color: white;
+
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .stge__home-functions_tutor img {
+        width: 128px;
+        height: 128px;
+    }
+
+    .stge__home-functions_tutor p {
+        font-size: medium;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    #close {
+        right: 1rem;
+    }
 }

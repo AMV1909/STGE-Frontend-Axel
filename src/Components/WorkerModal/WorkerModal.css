@@ -79,3 +79,27 @@
     border-radius: 1rem;
     object-fit: cover;
 }
+
+@media screen and (max-width: 1500px) {
+    .stge__workerModal-content {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .stge__workerModal-content {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .stge__workerModal-content {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stge__workerModal-content {
+        width: 90%;
+    }
+}

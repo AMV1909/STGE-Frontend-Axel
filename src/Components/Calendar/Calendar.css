@@ -38,3 +38,35 @@
     width: 1.5rem;
     height: 1.5rem;
 }
+
+.fc {
+    height: 100% !important;
+}
+
+.fc h2,
+.fc a,
+.fc button {
+    font-weight: normal !important;
+}
+
+.fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center !important;
+    gap: 1rem;
+
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .fc-header-toolbar {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .fc-header-toolbar {
+        flex-direction: column;
+    }
+}

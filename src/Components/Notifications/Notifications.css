@@ -1,5 +1,5 @@
 .stge__notifications {
-    position: fixed;
+    position: absolute;
     top: 12.5vh;
     right: 2.5rem;
     z-index: 9999;
@@ -37,4 +37,24 @@
 
 .stge__notification:last-child {
     border-bottom: none;
+}
+
+@media screen and (max-width: 500px) {
+    .stge__notifications {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .stge__notifications {
+        width: 320px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .stge__notifications {
+        width: 100%;
+        margin: 0;
+    }
 }

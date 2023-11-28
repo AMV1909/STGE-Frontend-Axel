@@ -121,7 +121,10 @@ export function ListTutors() {
                 )}
             </div>
 
-            <TutorInfo selectedTutor={selectedTutor} />
+            <TutorInfo
+                selectedTutor={selectedTutor}
+                setSelectedTutor={setSelectedTutor}
+            />
         </main>
     );
 }

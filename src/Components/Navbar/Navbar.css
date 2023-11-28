@@ -23,11 +23,13 @@ nav {
     padding: 0.5rem;
     border-radius: 0.5rem;
 
+    text-wrap: nowrap;
+
     transition: all 0.3s ease-in-out;
 }
 
-.stge__navbar-links a:hover:nth-child(2),
-.stge__navbar-links a:hover:nth-child(3) {
+#list-tutors:hover,
+#admin:hover {
     color: black;
     background-color: white;
     text-decoration: none;
@@ -48,24 +50,30 @@ nav {
 }
 
 .stge__navbar-functions input,
-.stge__navbar-functions button {
+.stge__navbar-functions button,
+.stge__navbar-toggle input,
+.stge__navbar-toggle button {
     padding: 0.5rem;
 }
 
-.stge__navbar-functions select {
+.stge__navbar-functions select,
+.stge__navbar-toggle select {
     border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.stge__navbar-functions input {
+.stge__navbar-functions input,
+.stge__navbar-toggle input {
     height: 37px;
     border-radius: 0 !important;
 }
 
-.stge__navbar-functions input:focus {
+.stge__navbar-functions input:focus,
+.stge__navbar-toggle input:focus {
     outline: none;
 }
 
-.stge__navbar-functions form button {
+.stge__navbar-functions form button,
+.stge__navbar-toggle form button {
     height: 37px;
     border-radius: 0 0.5rem 0.5rem 0;
 }
@@ -88,7 +96,17 @@ nav {
     color: black;
 }
 
+.stge__navbar-toggle input::placeholder {
+    color: transparent;
+}
+
 .stge__navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.25rem;
+
     position: absolute;
     right: 0;
     top: 6rem;
@@ -99,4 +117,101 @@ nav {
     border-radius: 0.5rem;
     border: 1px solid black;
     padding: 1rem;
+
+    max-width: 320px;
+}
+
+#toggle-list-tutors,
+#toggle-admin,
+#toggle-notifications,
+#toggle-profile,
+#toggle-form {
+    display: none;
+}
+
+.stge__navbar-toggle_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    width: 100%;
+}
+
+.stge__navbar-toggle_buttons button {
+    width: 100%;
+    height: 40px;
+}
+
+@media screen and (max-width: 1500px) {
+    .stge__navbar-functions form {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .stge__navbar-links a {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .stge__navbar-links {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    #list-tutors,
+    #admin {
+        display: none;
+    }
+
+    #toggle-list-tutors,
+    #toggle-admin {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    nav {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .stge__navbar-functions form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    nav {
+        grid-template-columns: 1fr 4fr;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    #notifications,
+    #profile {
+        display: none;
+    }
+
+    #toggle-notifications,
+    #toggle-profile {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #form {
+        display: none;
+    }
+
+    #toggle-form {
+        display: flex;
+    }
 }

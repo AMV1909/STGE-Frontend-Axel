@@ -47,6 +47,12 @@ export function TutorCard({ tutor, setSelectedTutor }: Props) {
                             <strong>Carrera: </strong>
                             {tutor.career}
                         </p>
+
+                        <p id="course-column">
+                            <strong>Curso: </strong>
+                            {tutor.coursesToTeach.name} (
+                            {tutor.coursesToTeach.grade})
+                        </p>
                     </div>
 
                     <div className="stge__tutorCard-information_score">
@@ -60,7 +66,7 @@ export function TutorCard({ tutor, setSelectedTutor }: Props) {
                     </div>
                 </div>
 
-                <p>
+                <p id="course">
                     {tutor.coursesToTeach.name} ({tutor.coursesToTeach.grade})
                 </p>
             </div>

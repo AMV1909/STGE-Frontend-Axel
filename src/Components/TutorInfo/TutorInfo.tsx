@@ -1,28 +1,50 @@
-import { TutorWithEvents } from "../../Types/types";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { IoCloseCircleOutline } from "react-icons/io5";
+
+import { EventCardTutor } from "..";
+import { TutorWithEvents } from "../../Types/types.d";
 import unab_logo from "../../Assets/unab_logo_orange.png";
 
 import "./TutorInfo.css";
 
-enum TypeString {
-    "Scheduled" = "Agendada",
-    "Completed" = "Completada",
-    "Requested" = "Solicitada",
-    "Rejected" = "Rechazada",
-    "Cancelled" = "Cancelada",
-}
-
 export function TutorInfo({
     selectedTutor,
+    setSelectedTutor,
 }: {
     selectedTutor: TutorWithEvents | null;
+    setSelectedTutor: Dispatch<SetStateAction<TutorWithEvents | null>>;
 }) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
-        <div className="stge__home-functions">
+        <div
+            className={`${
+                windowWidth <= 900
+                    ? selectedTutor
+                        ? "stge__home-functions"
+                        : "hidden"
+                    : "stge__home-functions"
+            }`}
+        >
+            <button id="close" onClick={() => setSelectedTutor(null)}>
+                <IoCloseCircleOutline />
+            </button>
+
             {selectedTutor ? (
                 <div className="stge__home-functions_tutor">
                     <img src={selectedTutor.picture} alt={selectedTutor.name} />
 
-                    <div>
+                    <div className="stge__home-functions_tutor-info">
                         <p>{selectedTutor.name}</p>
 
                         <p>
@@ -44,58 +66,11 @@ export function TutorInfo({
                     </div>
 
                     {selectedTutor.events.length > 0 ? (
-                        <table>
-                            <thead>
-                                <th>Estudiante</th>
-                                <th>Curso</th>
-                                <th>Fecha de inicio</th>
-                                <th>Fecha de finalización</th>
-                                <th>Estado</th>
-                            </thead>
-
-                            <tbody>
-                                {selectedTutor.events.map((event) => {
-                                    let start = new Date(
-                                        event.start
-                                    ).toLocaleDateString("es-CO", {
-                                        weekday: "long",
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                    });
-
-                                    let end = new Date(
-                                        event.end
-                                    ).toLocaleDateString("es-CO", {
-                                        weekday: "long",
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                    });
-
-                                    start =
-                                        start.charAt(0).toUpperCase() +
-                                        start.slice(1);
-                                    end =
-                                        end.charAt(0).toUpperCase() +
-                                        end.slice(1);
-
-                                    return (
-                                        <tr key={event._id}>
-                                            <td>{event.student.name}</td>
-                                            <td>{event.course}</td>
-                                            <td>{start}</td>
-                                            <td>{end}</td>
-                                            <td>{TypeString[event.type]}</td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                        <div className="stge__home-functions_tutor-events">
+                            {selectedTutor.events.map((event) => (
+                                <EventCardTutor key={event._id} event={event} />
+                            ))}
+                        </div>
                     ) : (
                         <p className="stge__home-functions_tutor_noEvents">
                             El tutor no tiene eventos registrados

@@ -70,6 +70,7 @@ export function SelectCoursesToTeach() {
         <main className="stge__selectCoursesToTeach">
             <div className="stge__selectCoursesToTeach-listCourses">
                 <h1>Seleccionar cursos</h1>
+                
                 <p
                     style={{
                         color: tempUser.pga >= 3.8 ? "#008f39" : "#ff0000",

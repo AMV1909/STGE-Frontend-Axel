@@ -56,3 +56,21 @@
     text-align: center;
     border-right: 1px solid #ccc;
 }
+
+@media screen and (max-width: 900px) {
+    .stge__home {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stge__home-tutors {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .stge__home-tutors {
+        padding: 0.5rem;
+    }
+}

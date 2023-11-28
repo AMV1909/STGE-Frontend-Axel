@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 import { useAppSelector } from "../../Hooks/store";
 import { ProfileTabs } from "../../Types/types.d";
@@ -7,11 +8,18 @@ import { ProfileTabsComponent } from "../../Components";
 import "./Profile.css";
 
 export function Profile() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const user = useAppSelector((state) => state.user);
     const [tab, setTab] = useState<ProfileTabs>("");
 
     useEffect(() => {
         document.title = "Perfil - Plan Padrino";
+
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (
@@ -97,7 +105,21 @@ export function Profile() {
                 </div>
             </div>
 
-            <div className="stge__profile-component">
+            <div
+                className={`${
+                    windowWidth <= 800
+                        ? tab
+                            ? "stge__profile-component"
+                            : "hidden"
+                        : "stge__profile-component"
+                }`}
+            >
+                {windowWidth <= 800 && (
+                    <button id="close" onClick={() => setTab("")}>
+                        <IoCloseCircleOutline />
+                    </button>
+                )}
+
                 <ProfileTabsComponent tab={tab} />
             </div>
         </main>

@@ -19,3 +19,21 @@
 .stge__split-title p {
     font-weight: bold;
 }
+
+@media screen and (max-width: 1550px) {
+    .stge__split-title h1 {
+        font-size: 6rem;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .stge__split-title h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .stge__split-title {
+        display: none;
+    }
+}

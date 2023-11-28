@@ -16,3 +16,5 @@ export { WorkerModal } from "./WorkerModal/WorkerModal";
 export { ToastDeleteWorker } from "./Toast/ToastDeleteWorker/ToastDeleteWorker";
 export { MemoizedSocketListener as SocketListener };
 export { Notifications } from "./Notifications/Notifications";
+export { EventCard } from "./EventCard/EventCard";
+export { EventCardTutor } from "./EventCard/EventCardTutor";

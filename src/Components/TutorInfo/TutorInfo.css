@@ -11,3 +11,13 @@
 .stge__home-functions_tutor table {
     width: 90%;
 }
+
+.stge__home-functions_tutor-events {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}

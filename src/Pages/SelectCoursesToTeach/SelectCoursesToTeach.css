@@ -19,8 +19,9 @@
     border-radius: 1rem;
 }
 
-.stge__selectCoursesToTeach-listCourses p {
-    display: inline;
+.stge__selectCoursesToTeach-listCourses h1,
+.stge__selectCoursesToTeach-listCourses > p {
+    text-align: center;
 }
 
 .stge__selectCoursesToTeach-listCourses_container {
@@ -64,4 +65,21 @@
 .stge__selectCoursesToTeach-listCourses_container button:disabled {
     background-color: rgba(42, 102, 231, 0.5);
     cursor: not-allowed;
+}
+
+@media screen and (max-width: 800px) {
+    .stge__selectCoursesToTeach,
+    .stge__selectCoursesToTeach-listCourses {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .stge__selectCoursesToTeach-listCourses {
+        padding: 1rem 0.5rem;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }

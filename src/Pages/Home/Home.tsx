@@ -72,7 +72,10 @@ export function Home() {
                 </div>
             )}
 
-            <HomeFunctions selectedTutor={selectedTutor} />
+            <HomeFunctions
+                selectedTutor={selectedTutor}
+                setSelectedTutor={setSelectedTutor}
+            />
         </main>
     );
 }
