@@ -9,8 +9,8 @@ import "./Profile.css";
 
 export function Profile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const user = useAppSelector((state) => state.user);
     const [tab, setTab] = useState<ProfileTabs>("");
+    const user = useAppSelector((state) => state.user);
 
     useEffect(() => {
         document.title = "Perfil - Plan Padrino";
@@ -21,6 +21,11 @@ export function Profile() {
 
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    useEffect(() => {
+        const image = new Image();
+        image.src = user.picture;
+    }, [user.picture]);
 
     return (
         <main className="stge__profile">

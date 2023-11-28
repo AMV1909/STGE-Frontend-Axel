@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch, useEffect } from "react";
 import { RatingStar } from "rating-star";
 import { toast } from "react-hot-toast";
 
@@ -14,6 +14,11 @@ interface Props {
 
 export function TutorCard({ tutor, setSelectedTutor }: Props) {
     const user = useAppSelector((state) => state.user);
+
+    useEffect(() => {
+        const image = new Image();
+        image.src = tutor.picture;
+    }, [tutor.picture]);
 
     const onClick = () => {
         if (user.role === "Student") {
