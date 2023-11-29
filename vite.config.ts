@@ -10,7 +10,7 @@ export default defineConfig({
             registerType: "autoUpdate",
             includeAssets: [
                 "unab_logo_orange.png",
-                "unab_logo.svg",
+                "unab_logo.png",
                 "favicon.ico",
             ],
             manifest: {
@@ -26,7 +26,7 @@ export default defineConfig({
                     {
                         src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "32x32",
-                        type: "image/x-icon",
+                        type: "image/png",
                     },
                     {
                         src: "https://plan-padrino.pages.dev/unab_logo.png",
