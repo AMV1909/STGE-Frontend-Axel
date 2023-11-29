@@ -8,7 +8,13 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: "autoUpdate",
-            includeAssets: ["favicon.ico", "robots.txt", "sitemap.xml"],
+            includeAssets: [
+                "favicon.ico",
+                "robots.txt",
+                "sitemap.xml",
+                "plan_padrino.jpg",
+                "unab_logo_black.svg",
+            ],
             manifest: {
                 short_name: "Plan Padrino UNAB",
                 name: "Plan Padrino UNAB",
