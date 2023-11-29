@@ -10,7 +10,7 @@ export default defineConfig({
             registerType: "autoUpdate",
             includeAssets: [
                 "unab_logo_orange.png",
-                "unab_logo.svg",
+                "unab_logo.png",
                 "favicon.ico",
             ],
             manifest: {
