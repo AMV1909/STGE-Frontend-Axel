@@ -72,7 +72,7 @@ export function Navbar() {
 
         if (data.search === "") return;
 
-        navigate(PathRoutes.Home);
+        setToggle(false);
 
         await searchTutors(data)
             .then((tutors: Tutor[]) => {
@@ -90,6 +90,8 @@ export function Navbar() {
                     return toast.error("La sesión ha expirado");
                 }
             });
+
+        navigate(PathRoutes.Home);
     };
 
     useEffect(() => {
