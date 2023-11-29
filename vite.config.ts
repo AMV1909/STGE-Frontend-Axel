@@ -10,8 +10,8 @@ export default defineConfig({
             registerType: "autoUpdate",
             includeAssets: ["unab_logo_orange.png", "unab_logo.svg"],
             manifest: {
-                short_name: "Plan Padrino",
-                name: "Plan Padrino",
+                short_name: "Plan Padrino UNAB",
+                name: "Plan Padrino UNAB",
                 description:
                     "Plan Padrino UNAB, Sistema de Gestión y Seguimiento De Tutorías Estudiantiles En Línea Por Estudiantes Para Estudiantes.",
                 start_url: "https://plan-padrino.pages.dev",
@@ -20,7 +20,7 @@ export default defineConfig({
                 background_color: "#ffffff",
                 icons: [
                     {
-                        src: "/logo.png",
+                        src: "./public/logo.png",
                         sizes: "32x32",
                         type: "image/png",
                     },
