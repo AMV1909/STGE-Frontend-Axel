@@ -24,22 +24,22 @@ export default defineConfig({
                 background_color: "#ffffff",
                 icons: [
                     {
-                        src: "./favicon.ico",
+                        src: "https://plan-padrino.pages.dev/favicon.ico",
                         sizes: "32x32",
                         type: "image/x-icon",
                     },
                     {
-                        src: "./unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
                         sizes: "192x192",
                         type: "image/png",
                     },
                     {
-                        src: "./unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
                         sizes: "512x512",
                         type: "image/png",
                     },
                     {
-                        src: "./unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
                         sizes: "512x512",
                         type: "image/png",
                         purpose: "any maskable",
