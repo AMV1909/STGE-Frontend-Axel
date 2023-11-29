@@ -29,17 +29,17 @@ export default defineConfig({
                         type: "image/x-icon",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/favicon.ico",
                         sizes: "192x192",
                         type: "image/png",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/favicon.ico",
                         sizes: "512x512",
                         type: "image/png",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_orange.png",
+                        src: "https://plan-padrino.pages.dev/favicon.ico",
                         sizes: "512x512",
                         type: "image/png",
                         purpose: "any maskable",
