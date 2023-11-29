@@ -13,7 +13,7 @@ export default defineConfig({
                 "robots.txt",
                 "sitemap.xml",
                 "plan_padrino.jpg",
-                "unab_logo_black.svg",
+                "unab_logo.png",
             ],
             manifest: {
                 short_name: "Plan Padrino UNAB",
@@ -33,24 +33,24 @@ export default defineConfig({
                 ],
                 icons: [
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
+                        src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "32x32",
-                        type: "image/svg+xml",
+                        type: "image/png",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
+                        src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "192x192",
-                        type: "image/svg+xml",
+                        type: "image/png",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
+                        src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "512x512",
-                        type: "image/svg+xml",
+                        type: "image/png",
                     },
                     {
-                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
+                        src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "512x512",
-                        type: "image/svg+xml",
+                        type: "image/png",
                         purpose: "any maskable",
                     },
                 ],
