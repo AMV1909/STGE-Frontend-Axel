@@ -20,31 +20,31 @@ export default defineConfig({
                 background_color: "#ffffff",
                 screenshots: [
                     {
-                        src: "./plan_padrino.png",
+                        src: "https://plan-padrino.pages.dev/plan_padrino.jpg",
                         sizes: "1600x900",
-                        type: "image/png",
+                        type: "image/jpg",
                     },
                 ],
                 icons: [
                     {
-                        src: "./unab_logo.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
                         sizes: "32x32",
-                        type: "image/png",
+                        type: "image/svg+xml",
                     },
                     {
-                        src: "./unab_logo.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
                         sizes: "192x192",
-                        type: "image/png",
+                        type: "image/svg+xml",
                     },
                     {
-                        src: "./unab_logo.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
                         sizes: "512x512",
-                        type: "image/png",
+                        type: "image/svg+xml",
                     },
                     {
-                        src: "./unab_logo.png",
+                        src: "https://plan-padrino.pages.dev/unab_logo_black.svg",
                         sizes: "512x512",
-                        type: "image/png",
+                        type: "image/svg+xml",
                         purpose: "any maskable",
                     },
                 ],
