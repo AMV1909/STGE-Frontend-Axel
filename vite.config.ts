@@ -26,7 +26,7 @@ export default defineConfig({
                     {
                         src: "https://plan-padrino.pages.dev/unab_logo.png",
                         sizes: "32x32",
-                        type: "image/x-icon",
+                        type: "image/png",
                     },
                     {
                         src: "https://plan-padrino.pages.dev/unab_logo.png",
