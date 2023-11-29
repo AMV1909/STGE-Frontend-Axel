@@ -8,7 +8,11 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: "autoUpdate",
-            includeAssets: ["unab_logo_orange.png", "unab_logo.svg"],
+            includeAssets: [
+                "unab_logo_orange.png",
+                "unab_logo.svg",
+                "favicon.ico",
+            ],
             manifest: {
                 short_name: "Plan Padrino UNAB",
                 name: "Plan Padrino UNAB",
@@ -20,7 +24,7 @@ export default defineConfig({
                 background_color: "#ffffff",
                 icons: [
                     {
-                        src: "./public/logo.png",
+                        src: "./logo.png",
                         sizes: "32x32",
                         type: "image/png",
                     },
