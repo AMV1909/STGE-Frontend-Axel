@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://plan-padrino.pages.dev/sitemap.xml

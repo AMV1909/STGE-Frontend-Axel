@@ -11,6 +11,7 @@ export default defineConfig({
             includeAssets: [
                 "unab_logo_orange.png",
                 "unab_logo.png",
+                "unab_logo.svg",
                 "favicon.ico",
             ],
             manifest: {
@@ -19,9 +20,16 @@ export default defineConfig({
                 description:
                     "Plan Padrino UNAB, Sistema de Gestión y Seguimiento De Tutorías Estudiantiles En Línea Por Estudiantes Para Estudiantes.",
                 start_url: "https://plan-padrino.pages.dev",
-                display: "standalone",
+                display: "fullscreen",
                 theme_color: "#000000",
                 background_color: "#ffffff",
+                screenshots: [
+                    {
+                        src: "https://plan-padrino.pages.dev/plan_padrino.png",
+                        sizes: "1600x900",
+                        type: "image/png",
+                    },
+                ],
                 icons: [
                     {
                         src: "https://plan-padrino.pages.dev/unab_logo.png",
