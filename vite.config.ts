@@ -8,12 +8,7 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: "autoUpdate",
-            includeAssets: [
-                "unab_logo_orange.png",
-                "unab_logo.png",
-                "unab_logo.svg",
-                "favicon.ico",
-            ],
+            includeAssets: ["favicon.ico", "robots.txt", "sitemap.xml"],
             manifest: {
                 short_name: "Plan Padrino UNAB",
                 name: "Plan Padrino UNAB",
@@ -25,29 +20,29 @@ export default defineConfig({
                 background_color: "#ffffff",
                 screenshots: [
                     {
-                        src: "/plan_padrino.png",
+                        src: "./plan_padrino.png",
                         sizes: "1600x900",
                         type: "image/png",
                     },
                 ],
                 icons: [
                     {
-                        src: "/unab_logo.png",
+                        src: "./unab_logo.png",
                         sizes: "32x32",
                         type: "image/png",
                     },
                     {
-                        src: "/unab_logo.png",
+                        src: "./unab_logo.png",
                         sizes: "192x192",
                         type: "image/png",
                     },
                     {
-                        src: "/unab_logo.png",
+                        src: "./unab_logo.png",
                         sizes: "512x512",
                         type: "image/png",
                     },
                     {
-                        src: "/unab_logo.png",
+                        src: "./unab_logo.png",
                         sizes: "512x512",
                         type: "image/png",
                         purpose: "any maskable",
