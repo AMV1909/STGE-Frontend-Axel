@@ -11,11 +11,12 @@ import "./PageLoader.css";
 export function PageLoader({
     setLoading,
 }: {
-    setLoading: Dispatch<SetStateAction<boolean>>;
+    setLoading?: Dispatch<SetStateAction<boolean>>;
 }) {
     const { setUser, logoutUser } = useUserActions();
 
     useEffect(() => {
+        if (!setLoading) return;
         if (!localStorage.getItem("token")) return setLoading(false);
 
         restoreSession()
