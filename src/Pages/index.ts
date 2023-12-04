@@ -37,11 +37,13 @@ const pages = {
     ),
 };
 
-export const Home = pages.Home;
-export const Login = pages.Login;
-export const Register = pages.Register;
-export const SelectCoursesToTeach = pages.SelectCoursesToTeach;
-export const Profile = pages.Profile;
-export const ListTutors = pages.ListTutors;
-export const Admin = pages.Admin;
-export const NotFound = pages.NotFound;
+export const {
+    Home,
+    Login,
+    Register,
+    SelectCoursesToTeach,
+    Profile,
+    ListTutors,
+    Admin,
+    NotFound,
+} = pages;
