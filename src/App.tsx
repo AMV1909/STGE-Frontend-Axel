@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -28,77 +28,79 @@ export function App() {
                 <PageLoader setLoading={setLoading} />
             ) : (
                 <Router>
-                    <Navbar />
-                    <SocketListener />
+                    <Suspense fallback={<PageLoader />}>
+                        <Navbar />
+                        <SocketListener />
 
-                    <Routes>
-                        <Route
-                            path={PathRoutes.Home}
-                            element={
-                                <ProtectedRoute>
-                                    <Home />
-                                </ProtectedRoute>
-                            }
-                        />
+                        <Routes>
+                            <Route
+                                path={PathRoutes.Home}
+                                element={
+                                    <ProtectedRoute>
+                                        <Home />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.Login}
-                            element={
-                                <ProtectedRoute>
-                                    <Login />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.Login}
+                                element={
+                                    <ProtectedRoute>
+                                        <Login />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.Register}
-                            element={
-                                <ProtectedRoute>
-                                    <Register />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.Register}
+                                element={
+                                    <ProtectedRoute>
+                                        <Register />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.SelectCoursesToTeach}
-                            element={
-                                <ProtectedRoute>
-                                    <SelectCoursesToTeach />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.SelectCoursesToTeach}
+                                element={
+                                    <ProtectedRoute>
+                                        <SelectCoursesToTeach />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.Profile}
-                            element={
-                                <ProtectedRoute>
-                                    <Profile />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.Profile}
+                                element={
+                                    <ProtectedRoute>
+                                        <Profile />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.TutorsList}
-                            element={
-                                <ProtectedRoute>
-                                    <ListTutors />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.TutorsList}
+                                element={
+                                    <ProtectedRoute>
+                                        <ListTutors />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route
-                            path={PathRoutes.Admin}
-                            element={
-                                <ProtectedRoute>
-                                    <Admin />
-                                </ProtectedRoute>
-                            }
-                        />
+                            <Route
+                                path={PathRoutes.Admin}
+                                element={
+                                    <ProtectedRoute>
+                                        <Admin />
+                                    </ProtectedRoute>
+                                }
+                            />
 
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
 
-                    <Toaster />
+                        <Toaster />
+                    </Suspense>
                 </Router>
             )}
         </>
